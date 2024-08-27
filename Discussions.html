@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="Discussions.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="Img/faviconV2.png">
+    <link rel="author" href="princetyrique52@gmail.com">
+    <title>Discussion</title>
+</head>
+<body>
+    <header class="header-main">
+        <nav>
+            <div class="nav" data-aos="zoom-in">
+            <img class="navlogo" src="Img/images.png">
+            <img class="ctu-buddy" src="Img/780687fc760999f78c4228f0e7e65736.png" alt="ctu-buddy">  
+                <ul class="navlinks">
+                    <button class="button"><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
+                    <button class="button"><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
+                    <button class="button"><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
+                </ul>           
+            </div>
+        </nav>
+    </header>
+
+    <section class="discussion-hero" data-aos="fade-up">
+        <div class="hero-content" data-aos="fade-down">
+            <h2>Engage, Learn, and Collaborate</h2>
+            <p>Post your questions, join discussions, and connect with your peers.</p>
+            <img src="Img/Discussion.jpg" alt="Discussion Image">
+        </div>
+    </section>
+
+    <section class="discussion-board">
+        <h2>Active Discussions</h2>
+        <div class="discussion-thread">
+            <div class="post">
+                <div class="user-profile">
+                    <img src="Img/random student.jpeg" alt="User 1">
+                    <h3>John Doe</h3>
+                </div>
+                <div class="post-content">
+                    <p><strong>Question:</strong>Do we have any homework for CWD</p>
+                    <p class="post-timestamp">Posted on: August 24, 2024</p>
+                </div>
+            </div>
+            <div class="replies">
+                <div class="reply">
+                    <div class="user-profile">
+                        <img src="Img/random female student.jpeg" alt="User 2">
+                        <h4>Jane Smith</h4>
+                    </div>
+                    <div class="reply-content">
+                        <p>Yes, we have to do research on flex box</p>
+                        <p class="reply-timestamp">Reply on: August 25, 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Threads can be added here -->
+
+        <div class="new-post">
+            <h3>Create a New Post</h3>
+            <form action="#" method="POST">
+                <textarea placeholder="What's on your mind?" rows="4"></textarea>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ctu Buddy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+</html>

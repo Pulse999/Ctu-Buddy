@@ -1,0 +1,270 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header-main {
+    width: 100%;
+    height: 60px;
+    background-attachment: fixed;
+}
+.nav {
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 60px;
+    background: linear-gradient(to right, #ffffff 30%, #136187 70%)
+}
+
+.navlogo {
+    height: 60px;
+    width: auto;
+    margin-right: 20px;
+}
+
+button {
+    min-width: 100px;
+    min-height: 35px;
+    background-color: rgb(24, 22, 51);
+    border-radius: 15px;
+
+}
+
+.navlinks {
+    display: flex;
+    position: relative;
+    flex: 1;
+    gap: 25px;
+    margin-left: 700px;
+    list-style: none;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 8px;
+    padding: 14px, 16px;
+    line-height: 80px;
+    left: 110px;
+}
+.navlinks a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navlinks a:hover {
+    font-weight: bold;
+    transition: all 0.5s;
+    color: red;
+}
+
+/* Link underline */
+span {
+    position: relative;
+  }
+  
+  span::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    transform-origin: center;
+    transform: translate(-50%, 0) scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  span:hover::before {
+    transform: translate(-50%, 0) scaleX(1);
+  }
+
+/* Hero Section */
+.about-hero {
+    background-color: #0056b3;
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+}
+
+.hero-content h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.hero-content p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.hero-content img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Mission Section */
+.mission-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+    background-image: url(Img/AboutusB.png);
+}
+
+.mission-section h2 {
+    color: #002147;
+    margin-bottom: 20px;
+}
+
+.mission-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* History Section */
+.history-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
+}
+
+.history-section h2 {
+    text-align: center;
+    color: #002147;
+    margin-bottom: 40px;
+}
+
+.history-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.history-content img {
+    flex: 1;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.history-content p {
+    flex: 2;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Leadership Section */
+.leadership-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.leadership-section h2 {
+    text-align: center;
+    color: #002147;
+    margin-bottom: 40px;
+}
+
+.leadership-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.leader-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: calc(33.333% - 20px);
+}
+
+.leader-card img {
+    border-radius: 50%;
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+
+.leader-card h3 {
+    margin: 10px 0;
+    color: #0056b3;
+}
+
+.leader-card p {
+    color: #777;
+}
+
+/* Footer */
+footer {
+    background-color: #002147;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Mobile Styles */
+@media (max-width: 576px) {
+    .navlogo {
+        height: 60px;
+        width: auto;
+        margin-right: 0;
+    }
+
+
+    .navlinks {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        flex: 1;
+        gap: 1px;
+        list-style: none;
+        align-items: center;
+        margin-top: 8px;
+        line-height: 80px;
+        margin-left: -150px;
+    }
+
+    .ctu-buddy {
+        height: 60px;
+        width: auto;
+        margin-right: 20px;
+        margin-left: 50px;
+        display: none;
+        }
+
+    button {
+        max-width: 50px;
+        max-height: 35px;
+        background-color: rgb(24, 22, 51);
+        border-radius: 0px;
+        padding: 0;
+    }
+
+    .navlinks li {
+        margin-bottom: 0px;
+    }
+
+    .history-content {
+        flex-direction: column;
+    }
+
+    .leadership-container {
+        flex-direction: column;
+    }
+
+    .leader-card {
+        width: 100%;
+    }
+}

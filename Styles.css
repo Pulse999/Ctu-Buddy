@@ -1,0 +1,783 @@
+:root {
+    --color-1: rgb(212, 37, 37);
+    --color-2: rgb(41, 152, 249) ;
+    --color-3: navy;
+    --color-4:white;
+    --color-5:grey;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Myworld;
+    src: url(fonts/coolvetica/coolvetica\ rg\ it.otf);
+}
+
+@font-face {
+    font-family: Prob;
+    src: url(fonts/Probsecretary/Probsecretary.ttf)
+}
+
+@font-face {
+    font-family: Graphs;
+    src: url(fonts/Probsecretary/Graphers\ Blog.ttf)
+}
+
+@font-face {
+    font-family: Persian;
+    src: url(fonts/Persian/PersianSwordDemoRegular.ttf)
+}
+
+
+body {
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+}
+/* Nav */
+
+.header-main {
+    width: 100%;
+    height: 60px;
+    background-attachment: fixed;
+}
+.nav {
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 60px;
+    background: linear-gradient(to right, #ffffff 30%, #136187 70%)
+}
+
+.navlogo {
+    height: 60px;
+    width: auto;
+    margin-right: 20px;
+}
+
+button {
+    min-width: 100px;
+    min-height: 35px;
+    background-color: rgb(24, 22, 51);
+    border-radius: 15px;
+}
+
+/* Button hover */
+
+/* Button hover */
+
+.ctu-buddy {
+    height: 60px;
+    width: auto;
+    margin-right: 20px;
+    margin-left: 50px;
+}
+
+.navlinks {
+    display: flex;
+    position: relative;
+    flex: 1;
+    gap: 25px;
+    margin-left: 700px;
+    list-style: none;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 8px;
+    padding: 14px, 16px;
+    line-height: 80px;
+    left: 110px;
+}
+.navlinks a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navlinks a:hover {
+    font-weight: bold;
+    transition: all 0.5s;
+    color: red;
+}
+
+/* Live bammer */
+.Ctu-curser img {
+    width: 12px;
+    height: 12px;
+}
+
+.live-banner {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 100px 50px;
+  background-color: #ffffff;
+}
+
+.change- {
+  color: #f23645;
+}
+
+.change{
+  color: #089981;
+}
+
+.live-banner {
+  font-size: 15px;
+  padding-block: 8px;
+  border-block: 1px solid;
+  overflow: hidden;
+  user-select: none;
+
+  --gap: 20px;
+  display: flex;
+  gap: var(--gap);
+}
+
+.live-banner ul {
+  list-style: none;
+  flex-shrink: 0;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap);
+
+  animation: scroll 20s linear infinite;
+}
+
+.live-banner:hover ul {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+.live-banner .CBF,
+.live-banner .price {
+  font-weight: bold;
+}
+
+.live-banner .price {
+  margin-inline: 4px;
+}
+/* Live banner */
+
+.welcome-h1 {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 125px;
+    align-items: center;
+    justify-content: center;
+    font-family: Myworld;
+    font-size:larger;
+}
+
+.Home-ctu-buddy {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 515px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+    font-family: Books;
+    color: #ffffff;
+}
+
+/* Link underline */
+span {
+    position: relative;
+  }
+  
+  span::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    transform-origin: center;
+    transform: translate(-50%, 0) scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  span:hover::before {
+    transform: translate(-50%, 0) scaleX(1);
+  }
+/* Link underline */
+
+.surround-background {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: #0e273d;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
+}
+
+#slide {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 400px;
+    margin-bottom: 50px;
+    margin-top: 70px;
+    align-items: center;
+    justify-content: space-arounds;
+    gap: 200px;
+    color: #f2f2f2;
+}
+
+.slide-in-1, .slide-in-3 {
+    display: flex;
+    
+    
+}
+
+.slide-in-2, .slide-in-4 {
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+
+.slide-in-1 {
+    font-family: Prob;
+}
+
+.slide-in-2 {
+    font-family: Persian;
+}
+
+.slide-in-3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.slide-in-4 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.slide-text-1, .slide-text-3, .slide-text-4 {
+    position: relative;
+    height: 100px;
+    width: 400px;
+    align-content: center;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.slide-text-2 {
+    position: relative;
+    height: 100px;
+    width: 400px;
+    align-content: center;
+    text-align: center;
+    font-size: xx-large;
+    bottom: 80px;
+
+}
+
+.slide-kid-1, .slide-kid-3 {
+    position: relative;
+    display: flex;
+    width: 740px;
+    height: 100%;
+    background-color: red;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 0 35% 35% 0;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+}
+
+.slide-kid-2, .slide-kid-4 {
+    position: relative;
+    display: flex;
+    width: 740px;
+    height: 100%;
+    background-color: red;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 35% 0 0 35%;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+}
+
+.slide-kid-1 img {
+    width: 400px;
+    height: 330px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+}
+
+.slide-kid-2 img {
+    width: 400px;
+    height: 330px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+}
+
+.slide-kid-3 img {
+    width: 400px;
+    height: 330px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+}
+
+.slide-kid-4 img {
+    width: 400px;
+    height: 330px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+}
+
+.main-background {
+    position: relative;
+    width: 870px;
+    height: 600px;
+    border-radius: 12px;
+    background-color: #f2f2f2;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+}
+
+.background {
+    width: 85vmin;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+}
+
+.homepage-welcome {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 150px;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/Find-YOur-way.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.YT {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 600px;
+    background-color: red;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+}
+
+.YT iframe {
+    border-radius: 12px;
+}
+
+.link-pics {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: #0e273d;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+}
+
+.pic-1 {
+    display: flex;
+    background-image: url(https://i0.wp.com/ctutraining.ac.za/wp-content/uploads/2024/04/mid-year-girl-8.png?fit=419%2C438&ssl=1);
+    background-repeat: no-repeat; 
+}
+
+.pic-2 {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.pic-3 {
+    display: flex;
+    background-image: url(Img/Lil\ girl.png);
+    background-repeat: no-repeat;
+}
+
+.pic-1 {
+    font-family: Prob;
+}
+
+.pic-2 {
+    font-family: Graphs;
+}
+
+.pic-3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pic-text-1, .pic-text-3 {
+    position: relative;
+    height: 100px;
+    width: 400px;
+    align-content: center;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.pic-text-2 {
+    position: relative;
+    height: 100px;
+    width: 400px;
+    align-content: center;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.pic-text-1 a {
+    color: #ffff;
+    text-decoration: none;
+}
+
+.pic-text-2 a {
+    color: #ffff;
+    text-decoration: none;
+}
+
+.pic-text-3 a {
+    color: #ffff;
+    text-decoration: none;
+}
+
+.pic-text-1 a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+.pic-text-2 a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+.pic-text-3 a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+.pic-kid-1, .pic-kid-3 {
+    position: relative;
+    display: flex;
+    width: 740px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.pic-kid-2 {
+    position: relative;
+    display: flex;
+    width: 740px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.pic-kid-1 img {
+    width: 400px;
+    height: 380px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+    margin-left: 700px;
+}
+
+.pic-kid-2 img {
+    width: 400px;
+    height: 380px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+    margin-right: 800px;
+}
+
+.pic-kid-3 img {
+    width: 400px;
+    height: 380px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+    margin-left: 700px;
+}
+
+/* Mobile Design */
+
+@media (max-width: 576px) {
+
+    .navlogo {
+        height: 60px;
+        width: auto;
+        margin-right: 0;
+    }
+
+    .navlinks {
+        display: flex;
+        position: relative;
+        flex: 1;
+        gap: 1px;
+        list-style: none;
+        align-items: center;
+        margin-top: 8px;
+        padding: 14px, 16px;
+        line-height: 80px;
+        margin-left: -110px;
+    }
+
+    .ctu-buddy {
+    height: 60px;
+    width: auto;
+    margin-right: 20px;
+    margin-left: 50px;
+    display: none;
+    }
+
+    button {
+        max-width: 50px;
+        max-height: 35px;
+        background-color: rgb(24, 22, 51);
+        border-radius: 0px;
+    }
+
+    .surround-background {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 250px;
+        justify-content: space-between;
+        width: 100vw;
+        background-color: #0e273d;
+        background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
+    }
+
+    #slide {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: space-evenly;
+
+    }
+
+    .slide-kid-1, .slide-kid-3 {
+        position: relative;
+        display: flex;
+        width: 740px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .slide-kid-2, .slide-kid-4 {
+        position: relative;
+        display: flex;
+        width: 740px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slide-text-2 {
+        position: relative;
+        margin-bottom: 200px;
+        width: 100%;
+        height: auto;
+    }
+
+    .slide-text-1, .slide-text-3, .slide-text-4 {
+        position: relative;
+        height: 100px;
+        width: 400px;
+        align-content: center;
+        text-align: center;
+        font-size: xx-large;
+    }
+
+    .homepage-welcome {
+        font-size: x-small;
+    }
+
+    .link-pics {
+        display: flex;
+        flex-direction: column;
+        gap: 250px;
+        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
+        align-content: center; 
+    }
+
+    .pic-1 {
+        display: flex;
+        flex-direction: column;
+        gap: 250px;
+        justify-content: space-between;
+        background-image: none;
+        background-repeat: no-repeat;
+        justify-content: center;
+        align-items: center;
+        align-content: center; 
+    }
+
+    .pic-kid-1 img {
+        position: relative;
+        width: 400px;
+        height: 380px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        box-shadow: 10px 25px 30px rgba(30, 30, 200, 0.3);
+        right: 340px;
+        top: 80px;
+    }
+
+    .pic-kid-2 img {
+        position: relative;
+        width: 400px;
+        height: 380px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        box-shadow: 10px 25px 30px rgba(30, 30, 200, 0.3);
+        margin-right: 0;
+    }
+
+    .pic-3 {
+        display: flex;
+        background-image: none;
+        background-repeat: no-repeat;
+    }
+
+    .pic-kid-3 img {
+        width: 400px;
+        height: 380px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        box-shadow: 10px 25px 30px rgba(30, 30, 200, 0.3);
+        margin-left: 0;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #000066;
+}
+
+.footerContainer{
+    width: 100%;
+    padding:70px 30px  20px;
+
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+
+}
+
+.socialIcons a {
+    text-decoration: none;
+}
+
+.socialIcons i {
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+    color:maroon; 
+    font-size: 2em;
+    opacity: 0.9;
+}
+
+/* The logo color should chang when you hover hover it */
+.socialIcons a:hover{
+    background-color:#000066 ;
+    transition: 0.5s;
+}
+
+
+.socialIcons a:hover i{
+    color:#000066;
+    transition: 0.5s;
+}
+
+.footerNav{
+    margin: 30px 0;
+}
+
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+}
+
+.footerNav ul li a{
+    color: white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1em;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.footerNav ul li a:hover{
+    opacity: 1;
+
+}
+
+.footerBottom{
+    background-color: #000066;
+}
+
+.footerBottom p{
+    color: white;
+    text-align: center;
+}
+
+.designerfoot{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1;
+    font-weight: 400;
+    margin: 0px 5px;
+    text-align: center;
+} 
+
+@media(max-width:700px){
+    .footerNav ul{
+        flex-direction: column;
+    }
+    .footerNav ul li{
+        width: 100%;
+        text-align: center;
+        margin: 10px;
+    }
+}

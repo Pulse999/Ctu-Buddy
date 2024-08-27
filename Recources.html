@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  
+    <link rel="icon" type="image/png" sizes="32x32" href="Img/faviconV2.png">
+    <link rel="author" href="KeneThembinkosi999@gmail.com">
+    <title>Share Resources</title>
+    <link rel="stylesheet" href="Rescources-styles.css">
+</head>
+<body>
+    <header class="header-main">
+        <nav>
+            <div class="nav" data-aos="zoom-in">
+            <img class="navlogo" src="Img/images.png">
+            <img class="ctu-buddy" src="Img/780687fc760999f78c4228f0e7e65736.png" alt="ctu-buddy">  
+                <ul class="navlinks">
+                    <button class="button"><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
+                    <button class="button"><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
+                    <button class="button"><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
+                </ul>           
+            </div>
+        </nav>
+    </header>
+
+    <div class="All-content">
+        <section class="hero"data-aos="zoom-in">
+            <div class="hero-content">
+                <h2>Welcome to the Student Resource Hub</h2>
+                <p>Upload, Share, and Discover educational resources to help you succeed!</p>
+                <img src="Img/Share.jpg" alt="Students studying together">
+            </div>
+        </section>
+    
+        <section class="upload-section">
+            <h2>Upload Your Resources</h2>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <label for="resourceTitle">Resource Title:</label>
+                <input type="text" id="resourceTitle" name="resourceTitle" required>
+    
+                <label for="resourceCategory">Category:</label>
+                <select id="resourceCategory" name="resourceCategory">
+                    <option value="math">Cloud Fundamentals</option>
+                    <option value="science">Core Web Development</option>
+                    <option value="history">Robotic Development</option>
+                    <option value="language">Ethics and Network Architecture</option>
+                </select>
+    
+                <label for="resourceFile">Upload PDF:</label>
+                <input type="file" id="resourceFile" name="resourceFile" accept=".pdf" required>
+    
+                <button type="submit">Upload</button>
+            </form>
+        </section>
+    
+        <section class="search-section">
+            <h2>Search Resources</h2>
+            <input type="text" id="searchBox" placeholder="Search for resources...">
+        </section>
+    
+        <section class="resource-list">
+            <h2>Available Resources</h2>
+            <div class="resource-item">
+                <img src="Img/Pdf icon.png" alt="PDF Icon">
+                <h3>CF412 FA_1</h3>
+                <p>Category: Cloud</p>
+                <a href="#">Download</a>
+            </div>
+            <div class="resource-item">
+                <img src="Img/Pdf icon.png" alt="PDF Icon">
+                <h3>RD412 FA_1</h3>
+                <p>Category: Robotics</p>
+                <a href="#">Download</a>
+            </div>
+            <!-- Add more resource items as needed -->
+        </section>
+    
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Student Resource Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+</html>
