@@ -41,7 +41,7 @@
         data-aos-easing="linear"
         data-aos-duration="1500">
             <h2>Upload Your Resources</h2>
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="/upload" method="post" enctype="multipart/form-data">
                 <label for="resourceTitle">Resource Title:</label>
                 <input type="text" id="resourceTitle" name="resourceTitle" required>
     
@@ -64,7 +64,8 @@
         data-aos-offset="300"
         data-aos-easing="ease-in-sine">
             <h2>Search Resources</h2>
-            <input type="text" id="searchBox" placeholder="Search for resources...">
+            <input type="text" id="searchBox" placeholder="Search for resources..." oninput="searchResources()">
+            <div id="resourceList"></div>
         </section>
     
         <section class="resource-list" data-aos="flip-left"
@@ -75,13 +76,13 @@
                 <img src="Img/Pdf icon.png" alt="PDF Icon">
                 <h3>CF412 FA_1</h3>
                 <p>Category: Cloud</p>
-                <a href="#">Download</a>
+                <a href="/download/{{resourceId}}">Download</a>
             </div>
             <div class="resource-item">
                 <img src="Img/Pdf icon.png" alt="PDF Icon">
                 <h3>RD412 FA_1</h3>
                 <p>Category: Robotics</p>
-                <a href="#">Download</a>
+                <a href="/download/{{resourceId}}">Download</a>
             </div>
             <!-- Add more resource items as needed -->
         </section>
@@ -147,6 +148,27 @@
             <p>&copy; 2024 Ctu Buddy. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function searchResources() {
+            const query = document.getElementById('searchBox').value;
+            fetch(`/search?q=${query}`)
+                .then(response => response.json())
+                .then(resources => {
+                    const resourceList = document.getElementById('resourceList');
+                    resourceList.innerHTML = ''; // Clear current list
+                    resources.forEach(resource => {
+                        resourceList.innerHTML += `
+                            <div class="resource-item">
+                                <h3>${resource.title}</h3>
+                                <p>Category: ${resource.category}</p>
+                                <a href="/download/${resource._id}">Download</a>
+                            </div>
+                        `;
+                    });
+                });
+        }
+    </script>
 
     <script>
         const mobileMenu = document.getElementById('mobile-menu');
