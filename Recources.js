@@ -5,7 +5,13 @@ const path = require('path');
 const app = express();
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/resourcesDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/resourcesDB')
+    .then(() => {
+        console.log('Connected to MongoDB');
+    })
+    .catch(err => {
+        console.error('MongoDB connection error:', err);
+    });
 
 const resourceSchema = new mongoose.Schema({
     title: String,
@@ -18,10 +24,10 @@ const Resource = mongoose.model('Resource', resourceSchema);
 // Set up storage for file uploads using multer
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/');  // Store uploaded files in 'uploads' folder
+        cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname);  // Use the original file name
+        cb(null, file.originalname);
     }
 });
 
@@ -35,7 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve the index.html file directly from the root directory
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));  // Serve index.html from the root
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Upload resource
@@ -47,7 +53,7 @@ app.post('/upload', upload.single('resourceFile'), (req, res) => {
     });
 
     newResource.save().then(() => {
-        res.redirect('/');  // Redirect to home page after successful upload
+        res.redirect('/');
     }).catch(err => res.status(500).send('Error saving resource.'));
 });
 
@@ -56,7 +62,7 @@ app.get('/search', (req, res) => {
     const searchQuery = req.query.q;
     Resource.find({ title: new RegExp(searchQuery, 'i') }, (err, resources) => {
         if (err) return res.status(500).send('Error during search.');
-        res.json(resources);  // Send matching resources as JSON response
+        res.json(resources);
     });
 });
 
@@ -64,7 +70,7 @@ app.get('/search', (req, res) => {
 app.get('/download/:id', (req, res) => {
     Resource.findById(req.params.id, (err, resource) => {
         if (err) return res.status(500).send('Error downloading resource.');
-        res.download(resource.filePath);  // Download the file using the stored filePath
+        res.download(resource.filePath);
     });
 });
 
