@@ -1,3 +1,12 @@
+@font-face {
+    font-family: Myworld;
+    src: url(fonts/coolvetica/coolvetica\ rg\ it.otf);
+}
+
+footer {
+    font-family: Myworld;
+}
+
 .header-main {
     width: 100%;
     height: 60px;
@@ -32,7 +41,7 @@ button{
     position: relative;
     flex: 1;
     gap: 25px;
-    margin-left: 700px;
+    margin-left: 330px;
     list-style: none;
     align-items: center;
     margin-right: 20px;
@@ -75,13 +84,7 @@ span {
   }
   /* End */
 
-  .Otimetable{
-    position: relative;
-    height: 600px;
-    width: 900px;
-    right: 260px;
-    top: 70px;
-}
+ 
 
 .Thead{
     position: relative;
@@ -95,17 +98,24 @@ span {
 }
 
 .Bimage{
-    background-image: url(Img/Back.png);
+    position: relative;
+    background-repeat: no-repeat;
+    background-image: url(Img/Newtback.jpg);
+    background-size: cover;
+    background-position: center;
 }
 .timevid{
     position: relative;
     width: 2px;
     height:10px;
+    right: 10px;
+    bottom: 5px;
 }
 
 .Dbutton{
     position: relative;
-    left: 120px;
+    right: 470px;
+    top: 550px;
     background-color: black;
     color: azure; 
     border-radius: 10px;
@@ -124,12 +134,15 @@ span {
 
 .HtmlTable th , td {
     position: relative;
-    width: 100px;
-    top: 50px;
-    left: 680px;
+    width: 180px;
+    height: 45px;
+    left: 50px;
+    bottom: 230px;
     color:black;
-    border: 1px solid black;
-    background-color: rgb(230, 16, 16);
+    border: 3px solid red;
+    background-color:white;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 /* Mobile */
@@ -174,3 +187,238 @@ span {
         margin-bottom: 0px;
     }
 }
+
+footer {
+    font-family: Myworld;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.footer-logo-social {
+    flex: 1;
+    text-align: center;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+.social-text {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.footer-links {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin: 10px 0;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: red; /* Hover color */
+}
+
+.footer-contact {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact ul li {
+    margin-bottom: 10px;
+}
+
+.footer-contact ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-contact ul li a:hover {
+    color: red; /* Hover color */
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 20px;
+}
+
+
+
+.Backnew{
+    background-image: url(Img/CTU-Pattern-2.svg);
+    background-color: white;
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    width: 100%;
+    height:700px
+}
+
+.body_content{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.calendar_body{
+    position: absolute;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    width: 450px;
+    margin-right: 10px;
+    left: 1030px;
+}
+.wrapper{
+    width: 450px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    border: 3px solid red;
+}
+.wrapper header{
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+header .icons{
+    display: flex;
+}
+header .icons span{
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #878787;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+}
+.icons span:last-child{
+    margin-right: -10px;
+}
+header .icons span:hover{
+    background: #f2f2f2;
+}
+header .current-date{
+    font-size: 1.45rem;
+    font-weight: 500;
+    font-weight: bold;
+}
+.calendar{
+    padding: 20px;
+    margin-left: 5px;
+    margin-right: 50px;
+}
+.calendar ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+}
+.calendar .days{
+    margin-bottom: 20px;
+}
+.calendar li{
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+}
+.calendar .weeks li{
+    font-weight: 500;
+    cursor: default;
+}
+.calendar .days li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+}
+.days li.inactive{
+    color: #aaa;
+}
+.days li.active{
+    color: #fff;
+}
+.days li::before{
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+.days li.active::before{
+    background: #ff0000;
+}
+.days li:not(.active):hover::before{
+    background: #f2f2f2;
+}
+

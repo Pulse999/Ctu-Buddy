@@ -1,9 +1,18 @@
+@font-face {
+    font-family: Myworld;
+    src: url(fonts/coolvetica/coolvetica\ rg\ it.otf);
+}
+
+footer {
+    font-family: Myworld;
+}
+
 body {
     font-family:Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    color: #333;
+    color: white;
 }
 
 .header-main {
@@ -40,7 +49,7 @@ button {
     position: relative;
     flex: 1;
     gap: 25px;
-    margin-left: 700px;
+    margin-left: 330px;
     list-style: none;
     align-items: center;
     margin-right: 20px;
@@ -85,26 +94,28 @@ span {
 
 /* Hero Section */
 .hero {
-    background-color: #0e273d;
     padding: 40px 20px;
     text-align: center;
-    color: white;
-    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/Find-YOur-way.svg);
+    color:black;
     background-repeat: no-repeat;
     background-position: center;
+    font-family: Myworld;
+    font-size:xx-large;
 }
 
 .hero-content img {
     max-width: 400px;
     height: 400px;
     margin-top: 20px;
-    border: 3px dashed red;
     border-radius: 15px;
 }
 
 .All-content {
     background-color: #aba6a6;
-    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+    background-size: 100% 100%; /* Start with the image covering the div */
+    background-position: center;
+    background-size: cover;
 }
 
 /* Upload Section */
@@ -200,13 +211,109 @@ button[type="submit"]:hover {
 
 
 /* Footer */
-footer {
-    background-color: #0e273d;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 40px;
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
 }
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.footer-logo-social {
+    flex: 1;
+    text-align: center;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+.social-text {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.footer-links {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin: 10px 0;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: red; /* Hover color */
+}
+
+.footer-contact {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact ul li {
+    margin-bottom: 10px;
+}
+
+.footer-contact ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-contact ul li a:hover {
+    color: red; /* Hover color */
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 20px;
+}
+
 
 /* Mobile Styles */
 @media (max-width: 576px) {

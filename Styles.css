@@ -82,7 +82,7 @@ button {
     position: relative;
     flex: 1;
     gap: 25px;
-    margin-left: 700px;
+    margin-left: 330px;
     list-style: none;
     align-items: center;
     margin-right: 20px;
@@ -173,12 +173,30 @@ button {
 .welcome-h1 {
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 125px;
     align-items: center;
     justify-content: center;
     font-family: Myworld;
     font-size:larger;
+}
+
+.sub {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 190px;
+    align-items: center;
+    justify-content: center;
+    font-family: Myworld;
+    font-size:larger;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+}
+
+button, #subscribe {
+    color: #f2f2f2;
 }
 
 .Home-ctu-buddy {
@@ -236,7 +254,7 @@ span {
     align-items: center;
     justify-content: space-arounds;
     gap: 200px;
-    color: #f2f2f2;
+    color:#e0d5d5;
 }
 
 .slide-in-1, .slide-in-3 {
@@ -252,29 +270,31 @@ span {
 }
 
 .slide-in-1 {
-    font-family: Prob;
+    font-family: Myworld;
 }
 
 .slide-in-2 {
-    font-family: Persian;
+    font-family: Myworld;
 }
 
 .slide-in-3 {
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
+    font-family: Myworld;
 }
 
 .slide-in-4 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Myworld;
 }
 
 .slide-text-1, .slide-text-3, .slide-text-4 {
     position: relative;
+    display: flex;
+    flex-direction: column;
     height: 100px;
     width: 400px;
+    justify-content: flex-start;
     align-content: center;
     text-align: center;
-    font-size: xx-large;
+    bottom: 100px;
 }
 
 .slide-text-2 {
@@ -283,7 +303,6 @@ span {
     width: 400px;
     align-content: center;
     text-align: center;
-    font-size: xx-large;
     bottom: 80px;
 
 }
@@ -372,6 +391,7 @@ span {
 .homepage-welcome {
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 150px;
     background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/Find-YOur-way.svg);
@@ -380,7 +400,7 @@ span {
     text-align: center;
     align-items: center;
     justify-content: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Myworld;
 }
 
 .YT {
@@ -406,6 +426,7 @@ span {
     width: 100vw;
     background-color: #0e273d;
     background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+    color: #333;
 }
 
 .pic-1 {
@@ -426,15 +447,15 @@ span {
 }
 
 .pic-1 {
-    font-family: Prob;
+    font-family:  Myworld;
 }
 
 .pic-2 {
-    font-family: Graphs;
+    font-family:  Myworld;
 }
 
 .pic-3 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:  Myworld;
 }
 
 .pic-text-1, .pic-text-3 {
@@ -443,7 +464,6 @@ span {
     width: 400px;
     align-content: center;
     text-align: center;
-    font-size: xx-large;
 }
 
 .pic-text-2 {
@@ -452,7 +472,6 @@ span {
     width: 400px;
     align-content: center;
     text-align: center;
-    font-size: xx-large;
 }
 
 .pic-text-1 a {
@@ -625,7 +644,8 @@ span {
     }
 
     .homepage-welcome {
-        font-size: x-small;
+        font-size:small;
+        overflow-x:hidden;
     }
 
     .link-pics {
@@ -687,97 +707,200 @@ span {
     }
 }
 
-/* Footer */
 footer {
-    background-color: #000066;
+    font-family: Myworld;
 }
 
-.footerContainer{
-    width: 100%;
-    padding:70px 30px  20px;
-
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
 }
 
-.socialIcons {
+.footer-container {
     display: flex;
-    justify-content: center;
-
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
 }
 
-.socialIcons a {
-    text-decoration: none;
+.footer-logo-social {
+    flex: 1;
+    text-align: center;
 }
 
-.socialIcons i {
-    padding: 10px;
-    background-color: white;
-    margin: 10px;
+.logo img {
+    width: 150px;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    color:maroon; 
-    font-size: 2em;
-    opacity: 0.9;
+    transition: transform 0.3s ease;
 }
 
-/* The logo color should chang when you hover hover it */
-.socialIcons a:hover{
-    background-color:#000066 ;
-    transition: 0.5s;
+.social-media img:hover {
+    transform: scale(1.1);
 }
 
-
-.socialIcons a:hover i{
-    color:#000066;
-    transition: 0.5s;
+.social-text {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
 }
 
-.footerNav{
-    margin: 30px 0;
+.footer-links {
+    flex: 1;
+    text-align: center;
 }
 
-.footerNav ul{
-    display: flex;
-    justify-content: center;
+.footer-links ul {
+    list-style: none;
 }
 
-.footerNav ul li a{
-    color: white;
-    margin: 20px;
+.footer-links ul li {
+    margin: 10px 0;
+}
+
+.footer-links ul li a {
+    color: #fff;
     text-decoration: none;
-    font-size: 1em;
-    opacity: 0.7;
-    transition: 0.5s;
+    transition: color 0.3s;
 }
 
-.footerNav ul li a:hover{
-    opacity: 1;
-
+.footer-links ul li a:hover {
+    color: red; /* Hover color */
 }
 
-.footerBottom{
-    background-color: #000066;
+.footer-contact {
+    flex: 1;
+    text-align: right;
 }
 
-.footerBottom p{
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact ul li {
+    margin-bottom: 10px;
+}
+
+.footer-contact ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-contact ul li a:hover {
+    color: red; /* Hover color */
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 20px;
+}
+
+.swing {
+  display: inline-block;
+  width: 215px;
+  padding: 10px 0 10px 15px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #377D6A;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  text-indent: 60px;
+  transition: all .3s ease-in-out;
+  outline: 1;
+  outline-color: #006aff;
+}
+.swing::-webkit-input-placeholder {
+  color: black;
+  text-indent: 0;
+  font-weight: 300;
+}
+.swing + label {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 15px;
+  text-shadow: 0 1px 0 rgba(19,74,70,.4);
+  background: red;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  transform-origin: 2px 2px;
+  animation: swing-back .4s 1 ease-in-out;
+  color: #fff;
+  background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+}
+@keyframes swing {
+  0% { transform: rotate(0); }
+  20% { transform: rotate(116deg); }
+  100% { transform: rotate(82deg); }
+}
+.swing:focus,
+.swing:active {
+  color: black;
+  text-indent: 0;
+  background: #fff;
+}
+.swing:focus + label,
+.swing:active + label {
+  animation: swing 1.4s 1 ease-in-out;
+  transform: rotate(82deg);
+}
+
+
+    #subsribe {
+    z-index: 1;
+    position: relative;
+    font-size: inherit;
+    font-family: inherit;
     color: white;
-    text-align: center;
-}
-
-.designerfoot{
-    opacity: 0.7;
-    text-transform: uppercase;
-    letter-spacing: 1;
-    font-weight: 400;
-    margin: 0px 5px;
-    text-align: center;
-} 
-
-@media(max-width:700px){
-    .footerNav ul{
-        flex-direction: column;
-    }
-    .footerNav ul li{
-        width: 100%;
-        text-align: center;
-        margin: 10px;
-    }
-}
+    padding: 0.5em 1em;
+    outline: none;
+    border: none;
+    background-color: hsl(236, 32%, 26%);
+  }
+  
+    #subsribe:hover {
+    cursor: pointer;
+  }
+  
+    #subsribe::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 4px solid hsl(236, 32%, 26%);
+    transform-origin: center;
+    transform: scale(1);
+  }
+  
+    #subsribe:hover::before {
+    transition: all 0.75s ease-in-out;
+    transform-origin: center;
+    transform: scale(1.75);
+    opacity: 0;
+  }
+  

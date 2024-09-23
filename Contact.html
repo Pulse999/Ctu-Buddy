@@ -9,16 +9,19 @@
     <link rel="stylesheet" href="Contact-styles.css">
     <title>Contact Us</title>
 </head>
-<body>
+<body style="margin-right: 0%;">
     <header class="header-main">
         <nav>
             <div class="nav" data-aos="zoom-in">
             <img class="navlogo" src="Img/images.png">
             <img class="ctu-buddy" src="Img/780687fc760999f78c4228f0e7e65736.png" alt="ctu-buddy">  
                 <ul class="navlinks">
-                    <button class="button"><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
-                    <button class="button"><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
-                    <button class="button"><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
+                    <button><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
+                    <button><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
+                    <button><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
+                    <button><li><span><a href="Timetable.html"><i class="fas fa-clock"></i>Timetable</a></span></li></button>
+                    <button><li><span><a href="Discussions.html"><i class="fas fa-comments"></i>Discussion</a></span></li></button>
+                    <button><li><span><a href="Recources.html"><i class="fas fa-cogs"></i>Recources</a></span></li></button>
                 </ul>           
             </div>
             <div class="menu-toggle" id="mobile-menu">
@@ -29,67 +32,130 @@
         </nav>
     </header>
 
+    <span>
+        <input class="gate" id="class" type="text" placeholder="Wizard!" /><label for="class">Class</label>
+      </span>
+
     <section class="contact-hero" data-aos="fade-up">
         <div class="hero-content">
-            <h2>We're Here to Help</h2>
-            <p>Feel free to reach out to us with any questions or concerns.</p>
-            <img src="Img/Contact-us.jpg" alt="Contact Us Image">
+            <h2 style="font-family: Myworld; font-size: 300%;">We're Here to Help</h2>
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 200%;" >Feel free to reach out to us with any questions or concerns.</p>
+            <img style= "border-radius: 5%; " src="Img/Contact-us-Hero.jpg" alt="Contact Us Image">
         </div>
     </section>
 
     <section class="contact-form-section" data-aos="fade-up">
-        <h2>Get in Touch</h2>
-        <form action="#" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
+        <Div class="contact-form-backround">
+            <h2 class="contact-form-section h2">Get in Touch</h2>
+            <form action="#" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </Div>
     </section>
 
-    <section class="contact-profiles">
-        <h2>Contact Our Team</h2>
-        <div class="profiles-container">
-            <div class="profile-card">
-                <img src="Img/Me now.jpg" alt="Profile 1">
-                <h3>Mr Themba Kene</h3>
-                <p>Vice Chancellor</p>
-                <a href="ThembaKene@example.com">Themba1@example.com</a>
-                <p>+27 12 345 789</p>
-            </div>
-            <div class="profile-card">
-                <img src="Img/Ty pic.jpg" alt="Profile 2">
-                <h3>Mr Prince Tyrique</h3>
-                <p>Student Services</p>
-                <a href="PrinceTyrique@example.com">Tyrique@example.com</a>
-                <p>+27 12 345 789</p>
-            </div>
-            <div class="profile-card">
-                <img src="Img/Lode pic.jpg" alt="Profile 3">
-                <h3>Mr Pretorius Lodewyk</h3>
-                <p>President</p>
-                <a href="PretoriusLodewyk@example.com">Lodewyk@example.com</a>
-                <p>+27 12 345 789</p>
-            </div>
-            <div class="profile-card">
-                <img src="Img/Themba R pic.jpg" alt="Profile 4">
-                <h3>Mr Ramanamane Themba</h3>
-                <p>IT Support</p>
-                <a href="RamanamaneThemba@example.com">Themba2@example.com</a>
-                <p>+27 12 345 789</p>
+    <section class="contact-profiles" data-aos="fade-left">
+        <div class="profile-background">
+            <div class="profiles-container">
+                <h2 data-aos="fade-right" style="margin-left: 40%;" class="contact-profiles h2">Contact Tech Musketeers</h2>
+                <div class="profile-card">
+                    <img src="Img/Me now.jpg" alt="Profile 1">
+                    <h3>Mr Themba Kene</h3>
+                    <p>Vice Chancellor</p>
+                    <a href="ThembaKene@example.com">Themba1@example.com</a>
+                    <p>20240437</p>
+                </div>
+                <div class="profile-card">
+                    <img src="Img/Ty pic.jpg" alt="Profile 2">
+                    <h3>Mr Prince Tyrique</h3>
+                    <p>Student Services</p>
+                    <a href="PrinceTyrique@example.com">Tyrique@example.com</a>
+                    <p>20240118</p>
+                </div>
+                <div class="profile-card">
+                    <img src="Img/Lode pic.jpg" alt="Profile 3">
+                    <h3>Mr Pretorius Lodewyk</h3>
+                    <p>President</p>
+                    <a href="PretoriusLodewyk@example.com">Lodewyk@example.com</a>
+                    <p>20241260</p>
+                </div>
+                <div class="profile-card">
+                    <img src="Img/Themba R pic.jpg" alt="Profile 4">
+                    <h3>Mr Ramanamane Themba</h3>
+                    <p>IT Support</p>
+                    <a href="RamanamaneThemba@example.com">Themba2@example.com</a>
+                    <p>20240358</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="map-section">
+    <section class="map-section" data-aos="zoom-in-up">
         <h2>Find Us</h2>
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3486.7611348522773!2d26.154314675375677!3d-29.08320267542169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e8fdb6a5867b92b%3A0x6a68f1ae264ac9e!2sCTU%20Training%20Solutions%20Bloemfontein!5e0!3m2!1sen!2sus!4v1724691822527!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
+<footer class="footer" data-aos="fade-down"
+data-aos-easing="linear"
+data-aos-duration="1500">
+        <div class="footer-container">
+            <!-- Logo & Social Media -->
+            <div class="footer-logo-social">
+                <div class="logo">
+                    <img src="Img/780687fc760999f78c4228f0e7e65736.png" alt="Institution Logo"> <!-- Replace with actual logo -->
+                </div>
+                <div class="social-media">
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="Img/icons8-facebook-32.png" alt="Facebook">
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="Img/icons8-twitter-30.png" alt="Twitter">
+                    </a>
+                    <a href="https://youtube.com" target="_blank">
+                        <img src="Img/icons8-youtube-30.png" alt="YouTube">
+                    </a>
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="Img/icons8-instagram-48.png" alt="Instagram">
+                    </a>
+                    <a href="https://tiktok.com" target="_blank">
+                        <img src="Img/icons8-tik-tok-24.png" alt="TikTok">
+                    </a>
+                    <a href="https://linkedin.com" target="_blank">
+                        <img src="Img/icons8-linkedin-2-50.png" alt="LinkedIn">
+                    </a>
+                </div>
+                <p class="social-text">Connect with us on social media!</p>
+            </div>
 
-    <footer>
-        <p>&copy; 2024 CTU Buddy. All rights reserved.</p>
+            <!-- Navigation Links -->
+            <div class="footer-links">
+                <ul>
+                    <li><span><a href="Index.html">Home</a></span></li>
+                    <li><span><a href="AboutUs.html">About Us</a></span></li>
+                    <li><span><a href="Contact.html">Contact Us</a></span></li>
+                    <li><span><a href="Timetable.html">Time Table</a></span></li>
+                    <li><span><a href="Discussions.html">Discussion</a></span></li>
+                    <li><span><a href="Recources.html">Resources</a></span></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <p><strong>Contact Us on WhatsApp:</strong></p><br>
+                <ul>
+                    <li>Themba Kene - <a href="https://wa.me/1234567890">+123 456 7890</a></li>
+                    <li>Lodewyk Pretorious - <a href="https://wa.me/0987654321">+098 765 4321</a></li>
+                    <li>Themba Ramanamane - <a href="https://wa.me/1122334455">+112 233 4455</a></li>
+                    <li>Tyrique Prince - <a href="https://wa.me/5566778899">+556 677 8899</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ctu Buddy. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>

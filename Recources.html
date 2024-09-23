@@ -17,9 +17,12 @@
             <img class="navlogo" src="Img/images.png">
             <img class="ctu-buddy" src="Img/780687fc760999f78c4228f0e7e65736.png" alt="ctu-buddy">  
                 <ul class="navlinks">
-                    <button class="button"><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
-                    <button class="button"><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
-                    <button class="button"><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
+                    <button><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
+                    <button><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
+                    <button><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
+                    <button><li><span><a href="Timetable.html"><i class="fas fa-clock"></i>Timetable</a></span></li></button>
+                    <button><li><span><a href="Discussions.html"><i class="fas fa-comments"></i>Discussion</a></span></li></button>
+                    <button><li><span><a href="Recources.html"><i class="fas fa-cogs"></i>Recources</a></span></li></button>
                 </ul>           
             </div>
         </nav>
@@ -28,13 +31,15 @@
     <div class="All-content">
         <section class="hero"data-aos="zoom-in">
             <div class="hero-content">
-                <h2>Welcome to the Student Resource Hub</h2>
+                <h1>Welcome to the Student Resource Hub</h1>
                 <p>Upload, Share, and Discover educational resources to help you succeed!</p>
-                <img src="Img/Share.jpg" alt="Students studying together">
+                <img src="Img/Recources Img.jpg" alt="Students studying together">
             </div>
         </section>
     
-        <section class="upload-section">
+        <section class="upload-section" data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500">
             <h2>Upload Your Resources</h2>
             <form action="#" method="post" enctype="multipart/form-data">
                 <label for="resourceTitle">Resource Title:</label>
@@ -55,12 +60,16 @@
             </form>
         </section>
     
-        <section class="search-section">
+        <section class="search-section" data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine">
             <h2>Search Resources</h2>
             <input type="text" id="searchBox" placeholder="Search for resources...">
         </section>
     
-        <section class="resource-list">
+        <section class="resource-list" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
             <h2>Available Resources</h2>
             <div class="resource-item">
                 <img src="Img/Pdf icon.png" alt="PDF Icon">
@@ -79,8 +88,64 @@
     
     </div>
     
-    <footer>
-        <p>&copy; 2024 Student Resource Hub. All rights reserved.</p>
+    <footer class="footer" data-aos="fade-down"
+    data-aos-easing="linear"
+    data-aos-duration="1500">
+        <div class="footer-container">
+            <!-- Logo & Social Media -->
+            <div class="footer-logo-social">
+                <div class="logo">
+                    <img src="Img/780687fc760999f78c4228f0e7e65736.png" alt="Institution Logo"> <!-- Replace with actual logo -->
+                </div>
+                <div class="social-media">
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="Img/icons8-facebook-32.png" alt="Facebook">
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="Img/icons8-twitter-30.png" alt="Twitter">
+                    </a>
+                    <a href="https://youtube.com" target="_blank">
+                        <img src="Img/icons8-youtube-30.png" alt="YouTube">
+                    </a>
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="Img/icons8-instagram-48.png" alt="Instagram">
+                    </a>
+                    <a href="https://tiktok.com" target="_blank">
+                        <img src="Img/icons8-tik-tok-24.png" alt="TikTok">
+                    </a>
+                    <a href="https://linkedin.com" target="_blank">
+                        <img src="Img/icons8-linkedin-2-50.png" alt="LinkedIn">
+                    </a>
+                </div>
+                <p class="social-text">Connect with us on social media!</p>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="footer-links">
+                <ul>
+                    <li><span><a href="Index.html">Home</a></span></li>
+                    <li><span><a href="AboutUs.html">About Us</a></span></li>
+                    <li><span><a href="Contact.html">Contact Us</a></span></li>
+                    <li><span><a href="Timetable.html">Time Table</a></span></li>
+                    <li><span><a href="Discussions.html">Discussion</a></span></li>
+                    <li><span><a href="Recources.html">Resources</a></span></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <p><strong>Contact Us on WhatsApp:</strong></p><br>
+                <ul>
+                    <li>Themba Kene - <a href="https://wa.me/1234567890">+123 456 7890</a></li>
+                    <li>Lodewyk Pretorious - <a href="https://wa.me/0987654321">+098 765 4321</a></li>
+                    <li>Themba Ramanamane - <a href="https://wa.me/1122334455">+112 233 4455</a></li>
+                    <li>Tyrique Prince - <a href="https://wa.me/5566778899">+556 677 8899</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ctu Buddy. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>

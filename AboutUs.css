@@ -1,9 +1,18 @@
+@font-face {
+    font-family: Myworld;
+    src: url(fonts/coolvetica/coolvetica\ rg\ it.otf);
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Myworld;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
+    background-size: 100% 100%; /* Start with the image covering the div */
+    background-position: center;
+    background-size: 180%;
 }
 
 .header-main {
@@ -40,7 +49,7 @@ button {
     position: relative;
     flex: 1;
     gap: 25px;
-    margin-left: 700px;
+    margin-left: 330px;
     list-style: none;
     align-items: center;
     margin-right: 20px;
@@ -84,16 +93,17 @@ span {
 
 /* Hero Section */
 .about-hero {
-    background-color: #0056b3;
     padding: 40px 20px;
     text-align: center;
-    color: white;
-    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+    color:#333;
+    font-family: Myworld;
+    font-size:larger;
 }
 
 .hero-content h2 {
     margin: 0;
     font-size: 2em;
+    color: #333;
 }
 
 .hero-content p {
@@ -114,7 +124,6 @@ span {
     margin: 40px auto;
     padding: 0 20px;
     text-align: center;
-    background-image: url(Img/AboutusB.png);
 }
 
 .mission-section h2 {
@@ -129,9 +138,7 @@ span {
 
 /* History Section */
 .history-section {
-    background-color: #f9f9f9;
     padding: 40px 20px;
-    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
 }
 
 .history-section h2 {
@@ -207,11 +214,107 @@ span {
 }
 
 /* Footer */
-footer {
-    background-color: #002147;
-    color: white;
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.footer-logo-social {
+    flex: 1;
     text-align: center;
-    padding: 10px 0;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+.social-text {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.footer-links {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin: 10px 0;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: red; /* Hover color */
+}
+
+.footer-contact {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact ul li {
+    margin-bottom: 10px;
+}
+
+.footer-contact ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-contact ul li a:hover {
+    color: red; /* Hover color */
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 20px;
 }
 
 /* Mobile Styles */

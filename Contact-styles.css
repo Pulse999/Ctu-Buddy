@@ -1,5 +1,14 @@
+@font-face {
+    font-family: Myworld;
+    src: url(fonts/coolvetica/coolvetica\ rg\ it.otf);
+}
+
+* {
+    font-family: Myworld;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Myworld;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -32,7 +41,7 @@ button {
     min-height: 35px;
     background-color: rgb(24, 22, 51);
     border-radius: 15px;
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navlinks {
@@ -40,7 +49,7 @@ button {
     position: relative;
     flex: 1;
     gap: 25px;
-    margin-left: 700px;
+    margin-left: 330px;
     list-style: none;
     align-items: center;
     margin-right: 20px;
@@ -83,11 +92,14 @@ span {
   }
 /* Hero Section */
 .contact-hero {
-    background-color: #0056b3;
+    background-color: #ffffff;
     padding: 40px 20px;
     text-align: center;
-    color: white;
-    background-image: url(Img/Ctu_backround.jpg);
+    color: rgb(0, 0, 0);
+    background-image: url(Img/CTU-Pattern-2.svg);
+    font-family: Myworld;
+    font-size:larger;
+    font-family: Myworld;
 }
 
 .hero-content h2 {
@@ -109,16 +121,24 @@ span {
 
 /* Contact Form Section */
 .contact-form-section {
-    max-width: 800px;
+    background-repeat: no-repeat;
+    margin-top: 0%;
     margin: 40px auto;
-    padding: 0 20px;
     text-align: center;
-    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
+}
+
+.contact-form-backround {
+    background-color: #002147;
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
+    padding: 0%;
 }
 
 .contact-form-section h2 {
-    color: #002147;
+    font-size: 300%;
+    color: white;
     margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: Myworld;
 }
 
 .contact-form {
@@ -128,19 +148,22 @@ span {
 }
 
 .contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 10px;
+    width: 60%;
+    padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    margin-left: 20%;
 }
 
 .contact-form button {
     background-color: #0056b3;
     color: white;
-    padding: 10px 20px;
+    padding: 0;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 20%;
+    margin-left: 40%;
 }
 
 .contact-form button:hover {
@@ -149,15 +172,19 @@ span {
 
 /* Contact Profiles Section */
 .contact-profiles {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin-top: 0%;
+    padding: 40px auto;
+    margin-left: 0%;
+    margin-right: 0%;
 }
 
 .contact-profiles h2 {
-    color: #002147;
+    font-size: 300%;
+    color: rgb(0, 0, 0);
     margin-bottom: 20px;
-    text-align: center;
+    margin-top: 20px;
+    font-family: Myworld;
+    margin-right: 700px;
 }
 
 .profiles-container {
@@ -165,6 +192,10 @@ span {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
+    margin-top: 80px;
+}
+
+.profile-background {
     background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
 }
 
@@ -175,6 +206,7 @@ span {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: calc(25% - 20px);
+    margin-top: 100px;
 }
 
 .profile-card img {
@@ -218,12 +250,109 @@ span {
 }
 
 /* Footer */
-footer {
-    background-color: #002147;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
 }
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.footer-logo-social {
+    flex: 1;
+    text-align: center;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+.social-text {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.footer-links {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin: 10px 0;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: red; /* Hover color */
+}
+
+.footer-contact {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact ul li {
+    margin-bottom: 10px;
+}
+
+.footer-contact ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-contact ul li a:hover {
+    color: red; /* Hover color */
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 20px;
+}
+
 
 /* Mobile */
 @media (max-width: 576px) {
@@ -275,3 +404,44 @@ footer {
         width: 100%;
     }
 }
+
+.gate {
+    display: inline-block;
+    width: 215px;
+    padding: 10px 0 10px 15px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: #377D6A;
+    background: #efefef;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .gate::-webkit-input-placeholder {
+    color: #efefef;
+    font-weight: 300;
+  }
+  
+  .gate + label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 10px 15px;
+    text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
+    background: #7AB893;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  
+  .gate:focus + label,
+  .gate:not(:placeholder-shown) + label {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  
