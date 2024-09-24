@@ -57,13 +57,16 @@ app.post('/upload', upload.single('resourceFile'), (req, res) => {
     }).catch(err => res.status(500).send('Error saving resource.'));
 });
 
-// Fetch all resources
-app.get('/resources', (req, res) => {
-    Resource.find({}, (err, resources) => {
-        if (err) return res.status(500).send('Error fetching resources.');
+// Fetch all resources (Updated to use async/await)
+app.get('/resources', async (req, res) => {
+    try {
+        const resources = await Resource.find({});
         res.json(resources);  // Return resources as JSON
-    });
+    } catch (err) {
+        res.status(500).send('Error fetching resources.');
+    }
 });
+
 
 // Download resource
 app.get('/download/:id', (req, res) => {
