@@ -171,8 +171,8 @@ button[type="submit"]:hover {
 
 /* Resource List */
 .resource-list {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
     background-color: red;
     background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);

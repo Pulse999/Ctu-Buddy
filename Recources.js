@@ -68,13 +68,19 @@ app.get('/resources', async (req, res) => {
 });
 
 
-// Download resource
-app.get('/download/:id', (req, res) => {
-    Resource.findById(req.params.id, (err, resource) => {
-        if (err) return res.status(500).send('Error downloading resource.');
+// Download resource (Updated to use async/await)
+app.get('/download/:id', async (req, res) => {
+    try {
+        const resource = await Resource.findById(req.params.id);
+        if (!resource) {
+            return res.status(404).send('Resource not found.');
+        }
         res.download(resource.filePath);
-    });
+    } catch (err) {
+        res.status(500).send('Error downloading resource.');
+    }
 });
+
 
 // Start server
 const PORT = process.env.PORT || 3000;
