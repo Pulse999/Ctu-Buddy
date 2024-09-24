@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="Img/faviconV2.png">
     <link rel="author" href="KeneThembinkosi999@gmail.com">
     <title>Share Resources</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="Rescources-styles.css">
 </head>
 <body>
@@ -41,16 +42,16 @@
         data-aos-easing="linear"
         data-aos-duration="1500">
             <h2>Upload Your Resources</h2>
-            <form action="/upload" method="post" enctype="multipart/form-data">
+            <form id="uploadForm" enctype="multipart/form-data">
                 <label for="resourceTitle">Resource Title:</label>
                 <input type="text" id="resourceTitle" name="resourceTitle" required>
     
                 <label for="resourceCategory">Category:</label>
                 <select id="resourceCategory" name="resourceCategory">
-                    <option value="math">Cloud Fundamentals</option>
-                    <option value="science">Core Web Development</option>
-                    <option value="history">Robotic Development</option>
-                    <option value="language">Ethics and Network Architecture</option>
+                    <option value="Cloud">Cloud Fundamentals</option>
+                    <option value="Web">Core Web Development</option>
+                    <option value="Robotics">Robotic Development</option>
+                    <option value="Ethics">Ethics and Network Architecture</option>
                 </select>
     
                 <label for="resourceFile">Upload PDF:</label>
@@ -72,21 +73,10 @@
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000">
             <h2>Available Resources</h2>
-            <div class="resource-item">
-                <img src="Img/Pdf icon.png" alt="PDF Icon">
-                <h3>CF412 FA_1</h3>
-                <p>Category: Cloud</p>
-                <a href="/download/{{resourceId}}">Download</a>
+            <div id="resourcesContainer">
+        
             </div>
-            <div class="resource-item">
-                <img src="Img/Pdf icon.png" alt="PDF Icon">
-                <h3>RD412 FA_1</h3>
-                <p>Category: Robotics</p>
-                <a href="/download/{{resourceId}}">Download</a>
-            </div>
-            <!-- Add more resource items as needed -->
         </section>
-    
     </div>
     
     <footer class="footer" data-aos="fade-down"
@@ -150,24 +140,49 @@
     </footer>
 
     <script>
-        function searchResources() {
-            const query = document.getElementById('searchBox').value;
-            fetch(`/search?q=${query}`)
-                .then(response => response.json())
-                .then(resources => {
-                    const resourceList = document.getElementById('resourceList');
-                    resourceList.innerHTML = ''; // Clear current list
-                    resources.forEach(resource => {
-                        resourceList.innerHTML += `
+        $(document).ready(function() {
+            // Fetch and display resources when the page loads
+            fetchResources();
+
+            // AJAX form submission for file upload
+            $('#uploadForm').submit(function(event) {
+                event.preventDefault(); // Prevent the form from submitting the traditional way
+                
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: '/upload',  // Send to server
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        alert('Resource uploaded successfully!');
+                        fetchResources();  // Fetch and display updated resources after successful upload
+                    },
+                    error: function(err) {
+                        alert('Error uploading resource.');
+                    }
+                });
+            });
+
+            // Fetch and display resources
+            function fetchResources() {
+                $.get('/resources', function(data) {
+                    $('#resourcesContainer').empty();  // Clear current resource list
+                    data.forEach(function(resource) {
+                        $('#resourcesContainer').append(`
                             <div class="resource-item">
+                                <img src="Img/Pdf icon.png" alt="PDF Icon">
                                 <h3>${resource.title}</h3>
                                 <p>Category: ${resource.category}</p>
                                 <a href="/download/${resource._id}">Download</a>
                             </div>
-                        `;
+                        `);
                     });
                 });
-        }
+            }
+        });
     </script>
 
     <script>

@@ -53,16 +53,15 @@ app.post('/upload', upload.single('resourceFile'), (req, res) => {
     });
 
     newResource.save().then(() => {
-        res.redirect('/');
+        res.status(200).send('File uploaded successfully!');
     }).catch(err => res.status(500).send('Error saving resource.'));
 });
 
-// Search resources
-app.get('/search', (req, res) => {
-    const searchQuery = req.query.q;
-    Resource.find({ title: new RegExp(searchQuery, 'i') }, (err, resources) => {
-        if (err) return res.status(500).send('Error during search.');
-        res.json(resources);
+// Fetch all resources
+app.get('/resources', (req, res) => {
+    Resource.find({}, (err, resources) => {
+        if (err) return res.status(500).send('Error fetching resources.');
+        res.json(resources);  // Return resources as JSON
     });
 });
 
