@@ -70,17 +70,11 @@
         </section>
     
         <section class="resource-list" data-aos="flip-left"
-        data-aos-easing="ease-out-cubic"
-        data-aos-duration="2000">
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000">
             <h2>Available Resources</h2>
             <div id="resourcesContainer">
-                <div class="resource-item">
-                    <img src="Img/Pdf icon.png" alt="PDF Icon">
-                    <h3>CF412 FA_1</h3>
-                    <p>Category: Cloud</p>
-                    <a href="#">Download</a>
-                    <button onclick="deleteResource('RESOURCE_ID')">Delete</button>
-                </div>
+                <!-- Resource items will be dynamically inserted here by JS -->
             </div>
         </section>
     </div>
@@ -149,13 +143,13 @@
         $(document).ready(function() {
             // Fetch and display resources when the page loads
             fetchResources();
-
+    
             // AJAX form submission for file upload
             $('#uploadForm').submit(function(event) {
                 event.preventDefault(); // Prevent the form from submitting the traditional way
                 
                 var formData = new FormData(this);
-
+    
                 $.ajax({
                     url: '/upload',  // Send to server
                     type: 'POST',
@@ -171,7 +165,7 @@
                     }
                 });
             });
-
+    
             // Fetch and display resources
             function fetchResources() {
                 $.get('/resources', function(data) {
@@ -183,29 +177,29 @@
                                 <h3>${resource.title}</h3>
                                 <p>Category: ${resource.category}</p>
                                 <a href="/download/${resource._id}">Download</a>
+                                <button onclick="deleteResource('${resource._id}')">Delete</button>
                             </div>
                         `);
                     });
                 });
             }
+    
+            // Delete resource
+            function deleteResource(id) {
+                fetch(`/delete/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                    // Refresh the list of resources
+                    fetchResources(); // Re-fetch resources after deletion
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
         });
-    </script>
-
-    <script>
-        function deleteResource(id) {
-            fetch(`/delete/${id}`, {
-                method: 'DELETE'
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert(data);
-                // Refresh the list of resources
-                window.location.reload();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
     </script>
 
     <script>
