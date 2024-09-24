@@ -74,7 +74,13 @@
         data-aos-duration="2000">
             <h2>Available Resources</h2>
             <div id="resourcesContainer">
-        
+                <div class="resource-item">
+                    <img src="Img/Pdf icon.png" alt="PDF Icon">
+                    <h3>CF412 FA_1</h3>
+                    <p>Category: Cloud</p>
+                    <a href="#">Download</a>
+                    <button onclick="deleteResource('RESOURCE_ID')">Delete</button>
+                </div>
             </div>
         </section>
     </div>
@@ -183,6 +189,23 @@
                 });
             }
         });
+    </script>
+
+    <script>
+        function deleteResource(id) {
+            fetch(`/delete/${id}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                // Refresh the list of resources
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
     </script>
 
     <script>
