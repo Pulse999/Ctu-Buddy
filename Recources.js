@@ -86,23 +86,24 @@ app.get('/download/:id', async (req, res) => {
 
 // Delete resource
 app.delete('/delete/:id', async (req, res) => {
+    console.log(`Received request to delete resource with ID: ${req.params.id}`);
     try {
         const resource = await Resource.findById(req.params.id);
         if (!resource) {
+            console.log('Resource not found.');
             return res.status(404).send('Resource not found.');
         }
 
-        // Delete the file from the file system
         await fs.unlink(resource.filePath);
-
-        // Remove the resource entry from the database
         await Resource.findByIdAndRemove(req.params.id);
+        console.log('Resource deleted successfully.');
         res.send('Resource deleted successfully.');
     } catch (err) {
         console.error('Error deleting resource:', err);
         res.status(500).send('Error deleting resource.');
     }
 });
+
 
 // Start server
 const PORT = process.env.PORT || 3000;
