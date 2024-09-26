@@ -262,11 +262,14 @@ span {
     max-width: 1200px;
     margin: 0 auto;
     align-items: flex-start;
+    flex-wrap: wrap; /* Ensure wrapping on small screens */
 }
 
+/* Footer Logo and Social Media */
 .footer-logo-social {
     flex: 1;
     text-align: center;
+    margin-bottom: 20px; /* Add space for mobile */
 }
 
 .logo img {
@@ -299,13 +302,16 @@ span {
     margin-top: 10px;
 }
 
+/* Footer Links */
 .footer-links {
     flex: 1;
     text-align: center;
+    margin-bottom: 20px; /* Add space for mobile */
 }
 
 .footer-links ul {
     list-style: none;
+    padding: 0;
 }
 
 .footer-links ul li {
@@ -322,6 +328,7 @@ span {
     color: red; /* Hover color */
 }
 
+/* Contact Info */
 .footer-contact {
     flex: 1;
     text-align: right;
@@ -352,6 +359,37 @@ span {
     color: #aaa;
     margin-top: 20px;
 }
+
+/* Responsive Design: Mobile Styles */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-contact {
+        text-align: center;
+        margin-bottom: 20px; /* Add space for mobile */
+    }
+
+    .footer-links ul li a {
+        font-size: 14px; /* Adjust link size for mobile */
+    }
+
+    .footer-contact ul li {
+        font-size: 14px; /* Adjust font size for contact info on mobile */
+    }
+
+    .social-media img {
+        width: 35px;
+        height: 35px; /* Slightly reduce icon size for mobile */
+    }
+
+    .footer-bottom {
+        font-size: 10px; /* Adjust the bottom text size for mobile */
+    }
+}
+
 
 
 /* Mobile */
@@ -405,43 +443,4 @@ span {
     }
 }
 
-.gate {
-    display: inline-block;
-    width: 215px;
-    padding: 10px 0 10px 15px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
-    color: #377D6A;
-    background: #efefef;
-    border: 0;
-    border-radius: 3px;
-    outline: 0;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .gate::-webkit-input-placeholder {
-    color: #efefef;
-    font-weight: 300;
-  }
-  
-  .gate + label {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    padding: 10px 15px;
-    text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
-    background: #7AB893;
-    color: white;
-    transition: all 0.3s ease-in-out;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-  }
-  
-  .gate:focus + label,
-  .gate:not(:placeholder-shown) + label {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
   
