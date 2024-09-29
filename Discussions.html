@@ -12,22 +12,27 @@
 </head>
 <body>
     <header class="header-main">
-        <nav>
-            <div class="nav" data-aos="fade-up"
-            data-aos-duration="3000">
-            <img class="navlogo" src="Img/images.png">
-            <img class="ctu-buddy" src="Img/780687fc760999f78c4228f0e7e65736.png" alt="ctu-buddy">  
-                <ul class="navlinks">
-                    <button><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
-                    <button><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
-                    <button><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
-                    <button><li><span><a href="Timetable.html"><i class="fas fa-clock"></i>Timetable</a></span></li></button>
-                    <button><li><span><a href="Discussions.html"><i class="fas fa-comments"></i>Discussion</a></span></li></button>
-                    <button><li><span><a href="Recources.html"><i class="fas fa-cogs"></i>Recources</a></span></li></button>
-                </ul>           
+        <nav data-aos="fade-up"
+        data-aos-duration="3000">
+          <img class="navlogo" src="Img/images.png">
+          <img class="ctu-buddy" src="Img/780687fc760999f78c4228f0e7e65736.png" alt="ctu-buddy">
+          <div class="off-screen-menu">
+              <ul class="navlinks">
+                  <button><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
+                  <button><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
+                  <button><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
+                  <button><li><span><a href="Timetable.html"><i class="fas fa-clock"></i>Timetable</a></span></li></button>
+                  <button><li><span><a href="Discussions.html"><i class="fas fa-comments"></i>Discussion</a></span></li></button>
+                  <button><li><span><a href="Recources.html"><i class="fas fa-cogs"></i>Recources</a></span></li></button>
+              </ul>
             </div>
+          <div class="ham-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </nav>
-    </header>
+  </header>
 
     <section class="discussion-hero" data-aos="fade-down"
     data-aos-easing="linear"
@@ -49,7 +54,7 @@
                     <h3>John Doe</h3>
                 </div>
                 <div class="post-content">
-                    <p><strong>Question:</strong>Do we have any homework for CWD</p>
+                    <p><strong>Question:</strong> Do we have any homework for CWD</p>
                     <p class="post-timestamp">Posted on: August 24, 2024</p>
                 </div>
             </div>
@@ -72,10 +77,12 @@
         <div class="new-post">
             <h3>Create a New Post</h3>
             <form action="#" method="POST">
-                <textarea placeholder="What's on your mind?" rows="4"></textarea>
+                <input type="text" name="name" placeholder="Your Name" required><br>
+                <textarea name="question" placeholder="What's on your mind?" rows="4" required></textarea><br>
                 <button type="submit">Post</button>
             </form>
         </div>
+        
     </section>
 
     <footer class="footer" data-aos="fade-down"
@@ -137,6 +144,17 @@
             <p>&copy; 2024 Ctu Buddy. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const hamMenu = document.querySelector(".ham-menu");
+
+        const offScreenMenu = document.querySelector(".off-screen-menu");
+
+        hamMenu.addEventListener("click", () => {
+        hamMenu.classList.toggle("active");
+        offScreenMenu.classList.toggle("active");
+        });
+    </script>
 
     <script>
         const mobileMenu = document.getElementById('mobile-menu');

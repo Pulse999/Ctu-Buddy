@@ -14,24 +14,29 @@
     <title>CTU Buddy</title>
 </head>
 <body>
-    <header class="header-main">
-        <nav>
-            <div class="nav" data-aos="flip-left"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000">
-            <img class="navlogo" src="Img/images.png">
-            <img class="ctu-buddy" src="Img/780687fc760999f78c4228f0e7e65736.png" alt="ctu-buddy">  
-                <ul class="navlinks">
-                    <button><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
-                    <button><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
-                    <button><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
-                    <button><li><span><a href="Timetable.html"><i class="fas fa-clock"></i>Timetable</a></span></li></button>
-                    <button><li><span><a href="Discussions.html"><i class="fas fa-comments"></i>Discussion</a></span></li></button>
-                    <button><li><span><a href="Recources.html"><i class="fas fa-cogs"></i>Recources</a></span></li></button>
-                </ul>           
-            </div>
-        </nav>
-    </header>
+  <header class="header-main">
+    <nav data-aos="flip-left"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000">
+      <img class="navlogo" src="Img/images.png">
+      <img class="ctu-buddy" src="Img/780687fc760999f78c4228f0e7e65736.png" alt="ctu-buddy">
+      <div class="off-screen-menu">
+          <ul class="navlinks">
+              <button><li><span><a href="Index.html"><i class="fas fa-home"></i>Home</a></span></li></button>
+              <button><li><span><a href="AboutUs.html"><i class="fas fa-user"></i>About Us</a></span></li></button>
+              <button><li><span><a href="Contact.html"><i class="fas fa-address-book"></i>Contact Us</a></span></li></button>
+              <button><li><span><a href="Timetable.html"><i class="fas fa-clock"></i>Timetable</a></span></li></button>
+              <button><li><span><a href="Discussions.html"><i class="fas fa-comments"></i>Discussion</a></span></li></button>
+              <button><li><span><a href="Recources.html"><i class="fas fa-cogs"></i>Recources</a></span></li></button>
+          </ul>
+        </div>
+      <div class="ham-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+</header>
 
     <main>
         <div class="live-banner" data-aos="fade-up"
@@ -321,6 +326,17 @@
               <p>&copy; 2024 Ctu Buddy. All rights reserved.</p>
           </div>
       </footer>
+
+      <script>
+        const hamMenu = document.querySelector(".ham-menu");
+
+        const offScreenMenu = document.querySelector(".off-screen-menu");
+
+        hamMenu.addEventListener("click", () => {
+        hamMenu.classList.toggle("active");
+        offScreenMenu.classList.toggle("active");
+        });
+    </script>
   
       <!-- Include Font Awesome for social media icons -->
       <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
