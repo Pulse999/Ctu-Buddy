@@ -281,7 +281,7 @@ label {
 }
 
 input[type="text"], input[type="file"], select {
-    width: 100%;
+    width: 97%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -302,7 +302,7 @@ button[type="submit"]:hover {
 }
 
 #searchBox {
-    width: 100%;
+    width: 97%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;

@@ -331,7 +331,7 @@ nav {
 }
 
 .new-post form input[type="text"] {
-    width: 100%;
+    width: 97.5%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -339,7 +339,7 @@ nav {
 }
 
 .new-post form textarea {
-    width: 100%;
+    width: 97.5%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -504,6 +504,23 @@ nav {
 
 /* Mobile*/
 @media (max-width: 576px) {
+
+    .ham-menu {
+        margin-right: 10px;
+    }
+
+    .hero-content img {
+        max-width: 320px;
+        height: 300px;
+    }
+
+    .new-post form input[type="text"] {
+        width: 94%;
+    }
+
+    .new-post form textarea {
+        width: 94%;
+    }
     
     .discussion-thread {
         padding: 15px;
