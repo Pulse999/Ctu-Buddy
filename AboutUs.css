@@ -3,6 +3,10 @@
     src: url(fonts/coolvetica/coolvetica\ rg\ it.otf);
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: Myworld;
     margin: 0;
@@ -13,10 +17,11 @@ body {
     background-size: 100% 100%; /* Start with the image covering the div */
     background-position: center;
     background-size: 180%;
+    overflow-x: hidden;
 }
 
 .header-main {
-    width: 100%;
+    width: 100vw;
     height: 60px;
 }
 .navlogo {
@@ -129,7 +134,7 @@ nav {
     display: flex;
     background: linear-gradient(to right, #ffffff 30%, #136187 70%);
     height: 60px;
-    width: 100%;
+    width: 100vw;
     z-index: 999;
 }
 
@@ -338,7 +343,7 @@ nav {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: calc(33.333% - 20px);
+    width: calc(33.333% - 20px)\;
 }
 
 .leader-card img {
@@ -500,6 +505,10 @@ nav {
 
 /* Mobile Styles */
 @media (max-width: 576px) {
+
+    .leader-card {
+        width: 100vw;
+    }
 
     .history-content {
         flex-direction: column;
