@@ -35,7 +35,7 @@ app.post("/submit-form", (req, res) => {
     to: "ctubuddy4@gmail.com", // Your email
     subject: "New Contact Form Submission",
     text: `You have received a new message from the contact form.
-           Name: ${name} ${surname}
+           Name: ${name} 
            Email: ${email}
            Message: ${message}`,
   };
