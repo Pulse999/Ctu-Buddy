@@ -6,6 +6,10 @@
     --color-5:grey;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +37,6 @@
 
 
 body {
-    background-color: #f2f2f2;
     overflow-x: hidden;
 }
 /* Nav */
@@ -396,7 +399,7 @@ span {
     flex-direction: column;
     width: 100vw;
     background-color: #0e273d;
-    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
+    background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
 }
 
 #slide {
@@ -693,7 +696,7 @@ span {
     height: 380px;
     box-sizing: border-box;
     border-radius: 12px;
-    box-shadow: 10px 25px 30px rgba(30, 30, 200,0.3);
+    box-shadow: 10px 25px 30px #1e1ec84d;
     margin-right: 800px;
 }
 
@@ -710,15 +713,49 @@ span {
 
 @media (max-width: 576px) {
 
+    .welcome-h1 {
+        height: 80px;
+        font-size: small;
+    }
+
+    .Home-ctu-buddy img {
+        width: 200px;
+        margin-left: 10px;
+    }
+
+    .sub h1 {
+        font-size:large;
+    }
+
+    .slide-kid-1 img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .slide-kid-2 img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .slide-kid-3 img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .slide-kid-4 img {
+        width: 250px;
+        height: 250px;
+    }
+
     .surround-background {
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 250px;
+        gap: 200px;
         justify-content: space-between;
         width: 100vw;
         background-color: #0e273d;
-        background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern.svg);
+        background-image: url(https://ctutraining.ac.za/wp-content/uploads/2023/11/CTU-Pattern-2.svg);
     }
 
     #slide {
@@ -727,46 +764,73 @@ span {
         flex-direction: column;
         align-items: center;
         align-content: space-evenly;
-
     }
 
     .slide-kid-1, .slide-kid-3 {
         position: relative;
         display: flex;
-        width: 740px;
-        height: 100%;
+        width: 100vw;
+        height: 300px;
+        align-items: center;
+        justify-content: center;
+        top: 20px;
+    }
+    
+    .slide-kid-2 {
+        position: relative;
+        display: flex;
+        width: 100vw;
+        height: 300px;
         align-items: center;
         justify-content: center;
     }
-    
-    .slide-kid-2, .slide-kid-4 {
+
+    .slide-kid-4 {
         position: relative;
         display: flex;
-        width: 740px;
-        height: 100%;
+        width: 100vw;
+        height: 300px;
         align-items: center;
         justify-content: center;
+        top: 50px;
     }
 
     .slide-text-2 {
         position: relative;
         margin-bottom: 200px;
-        width: 100%;
-        height: auto;
+        width: 90vw;
+        height: 80px;
     }
 
-    .slide-text-1, .slide-text-3, .slide-text-4 {
+    .slide-text-4 {
         position: relative;
-        height: 100px;
-        width: 400px;
+        display: none;
+        height: 90px;
+        width: 100vw;
+        margin-bottom: 200px;
+    }
+
+    .slide-text-1, .slide-text-3 {
+        position: relative;
+        height: 80px;
+        width: 90vw;
         align-content: center;
         text-align: center;
-        font-size: xx-large;
+        font-size: medium;
     }
 
     .homepage-welcome {
-        font-size:small;
+        position: relative;
+        font-size:medium;
         overflow-x:hidden;
+        overflow-y: hidden;
+        height: 230px;
+        background-image: none;
+    }
+
+    iframe {
+        height: 100vw !important;
+        height: 300px !important
     }
 
     .link-pics {
@@ -804,7 +868,7 @@ span {
 
     .pic-kid-2 img {
         position: relative;
-        width: 400px;
+        width: 80vw;
         height: 380px;
         box-sizing: border-box;
         border-radius: 12px;
@@ -819,14 +883,44 @@ span {
     }
 
     .pic-kid-3 img {
-        width: 400px;
+        width: 80vw;
         height: 380px;
         box-sizing: border-box;
         border-radius: 12px;
         box-shadow: 10px 25px 30px rgba(30, 30, 200, 0.3);
         margin-left: 0;
     }
+
+    .pic-text-1 {
+        width: 90vw;
+    }
+
+    .pic-text-2 {
+        width: 90vw;
+        margin-bottom: 10px;
+    }
+
+    .pic-text-3 {
+        width: 90vw;
+    }
+
+    .pic-text-4 {
+        width: 90vw;
+    }
+
+    .pic-kid-3 {
+        top: 80px;
+    }
+
+    .pic-kid-1 {
+        top: 80px;
+    }
+
+    .footer {
+        margin-top: 100px;
+    }
 }
+
 
 .footer {
     background-color: #333;

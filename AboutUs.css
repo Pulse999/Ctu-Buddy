@@ -347,7 +347,7 @@ nav {
 }
 
 .leader-card img {
-    border-radius: 50%;
+    border-radius: 10%;
     max-width: 100px;
     margin-bottom: 15px;
 }
@@ -358,6 +358,10 @@ nav {
 }
 
 .leader-card p {
+    color: #777;
+}
+
+.leader-card a {
     color: #777;
 }
 
@@ -508,6 +512,9 @@ nav {
 
     .leader-card {
         width: 100vw;
+        background-color: transparent;
+        border: none;
+        border-radius: none;
     }
 
     .history-content {
