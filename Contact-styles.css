@@ -333,7 +333,7 @@ nav {
     margin-bottom: 20px;
     margin-top: 20px;
     font-family: Myworld;
-    margin-right: 700px;
+    margin-right: 500px;
 }
 
 .profiles-container {
@@ -548,6 +548,16 @@ nav {
     .profiles-container {
         flex-direction: column;
         width: 100vw;
+    }
+
+    .contact-profiles h2 {
+        position: relative;
+        font-size: 300%;
+        color: rgb(0, 0, 0);
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-family: Myworld;
+        margin-right: 400px;
     }
 
     .profile-card {
