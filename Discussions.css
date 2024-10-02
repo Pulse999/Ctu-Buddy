@@ -3,6 +3,10 @@
     src: url(fonts/coolvetica/coolvetica\ rg\ it.otf);
 }
 
+html {
+    overflow-x: hidden;
+}
+
 /* General Styles */
 body {
     font-family: Myworld;

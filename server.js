@@ -5,11 +5,12 @@ const path = require("path");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // Added to parse JSON data from AJAX requests
 
 // Serve static files (your HTML, CSS, and JavaScript files)
 app.use(express.static(path.join(__dirname)));
 
-// Handle the form submission
+// Handle the form submission (contact form)
 app.post("/submit-form", (req, res) => {
   // Destructure the form fields from req.body
   const { name, surname, email, phone, message } = req.body;
@@ -47,11 +48,11 @@ app.post("/submit-form", (req, res) => {
     subject: "Thank you for reaching out!",
     text: `Hello there ${name},
      
-           Thank you submiting 
+           Thank you for submitting.
 
-           For any queries do not hesitate to reply
+           For any queries do not hesitate to reply.
 
-           Best regards
+           Best regards,
            CTU Buddy`,
   };
 
@@ -73,6 +74,22 @@ app.post("/submit-form", (req, res) => {
       res.redirect("/thank-you.html");
     });
   });
+});
+
+// Route for handling AJAX requests to submit a new post/comment
+app.post("/submit-comment", (req, res) => {
+  const { name, question, timestamp } = req.body;
+
+  // Log the new comment to ensure data is coming through
+  console.log("New comment received:");
+  console.log("Name:", name);
+  console.log("Question:", question);
+  console.log("Timestamp:", timestamp);
+
+  // You can also store the comment in a database or a file here if needed.
+
+  // Respond to the frontend with a success message
+  res.json({ message: "Comment successfully received!" });
 });
 
 // Start the server

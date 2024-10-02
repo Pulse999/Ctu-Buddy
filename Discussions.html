@@ -45,9 +45,9 @@
     </section>
 
     <section class="discussion-board" data-aos="fade-up"
-    data-aos-anchor-placement="top-bottom">
+        data-aos-anchor-placement="top-bottom">
         <h2>Active Discussions</h2>
-        <div class="discussion-thread">
+        <div class="discussion-thread" id="discussion-thread">
             <div class="post">
                 <div class="user-profile">
                     <img src="Img/random student.jpeg" alt="User 1">
@@ -76,13 +76,12 @@
 
         <div class="new-post">
             <h3>Create a New Post</h3>
-            <form action="#" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required><br>
-                <textarea name="question" placeholder="What's on your mind?" rows="4" required></textarea><br>
+            <form id="new-post-form">
+                <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+                <textarea id="question" name="question" placeholder="What's on your mind?" rows="4" required></textarea><br>
                 <button type="submit">Post</button>
             </form>
         </div>
-        
     </section>
 
     <footer class="footer" data-aos="fade-down"
@@ -144,6 +143,45 @@
             <p>&copy; 2024 Ctu Buddy. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById("new-post-form").addEventListener("submit", function(e) {
+            e.preventDefault(); // Prevent form from submitting and refreshing the page
+    
+            // Get form values
+            const name = document.getElementById("name").value;
+            const question = document.getElementById("question").value;
+    
+            // Get the current date and time
+            const timestamp = new Date().toLocaleString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+            });
+    
+            // Create new post structure
+            const newPost = `
+                <div class="post">
+                    <div class="user-profile">
+                        <img src="Img/Sample_User_Icon.png" alt="${name}">
+                        <h3>${name}</h3>
+                    </div>
+                    <div class="post-content">
+                        <p><strong>Question:</strong> ${question}</p>
+                        <p class="post-timestamp">Posted on: ${timestamp}</p>
+                    </div>
+                </div>
+            `;
+    
+            // Add new post to the discussion thread
+            document.getElementById("discussion-thread").innerHTML += newPost;
+    
+            // Clear the form inputs
+            document.getElementById("new-post-form").reset();
+        });
+    </script>
 
     <script>
         const hamMenu = document.querySelector(".ham-menu");
