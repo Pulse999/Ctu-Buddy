@@ -2,30 +2,32 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const path = require("path");
-const sqlite3 = require("sqlite3").verbose(); // Import SQLite
+const { MongoClient } = require("mongodb"); // Import MongoDB client
+require('dotenv').config(); // For environment variables (e.g., MongoDB URI, Gmail password)
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // For JSON parsing
+app.use(bodyParser.json());
 
 // Serve static files (your HTML, CSS, and JavaScript files)
 app.use(express.static(path.join(__dirname)));
 
-// Connect to SQLite database (or create it if it doesn't exist)
-const db = new sqlite3.Database('./comments.db', (err) => {
-  if (err) {
-    return console.error("Database connection error: ", err.message);
-  }
-  console.log('Connected to the SQLite database.');
-});
+// MongoDB URI (use your MongoDB URI)
+const uri = process.env.MONGODB_URI || "your-mongodb-atlas-uri";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// Create a table for storing comments if it doesn't exist
-db.run(`CREATE TABLE IF NOT EXISTS comments (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  question TEXT NOT NULL,
-  timestamp TEXT NOT NULL
-)`);
+let commentsCollection;
+
+// Connect to MongoDB
+client.connect(err => {
+  if (err) {
+    console.error("MongoDB connection error: ", err);
+    process.exit(1); // Exit if connection fails
+  }
+  console.log("Connected to MongoDB");
+  const db = client.db("your-database-name"); // Replace with your database name
+  commentsCollection = db.collection("comments"); // Collection for comments
+});
 
 // Handle the form submission (contact form)
 app.post("/submit-form", (req, res) => {
@@ -39,14 +41,14 @@ app.post("/submit-form", (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: "ctubuddy4@gmail.com",
-      pass: "ctxb azqa qmfq wyyz", // Your Gmail password or app password
+      user: process.env.GMAIL_USER, // Environment variable for Gmail user
+      pass: process.env.GMAIL_PASS, // Environment variable for Gmail app password
     },
   });
 
   const mailOptionsToYou = {
     from: email,
-    to: "ctubuddy4@gmail.com",
+    to: process.env.GMAIL_USER,
     subject: "New Contact Form Submission",
     text: `You have received a new message from the contact form.
            Name: ${name} 
@@ -55,7 +57,7 @@ app.post("/submit-form", (req, res) => {
   };
 
   const mailOptionsToCustomer = {
-    from: "ctubuddy4@gmail.com",
+    from: process.env.GMAIL_USER,
     to: email,
     subject: "Thank you for reaching out!",
     text: `Hello there ${name},
@@ -86,32 +88,30 @@ app.post("/submit-form", (req, res) => {
 });
 
 // Route for handling AJAX requests to submit a new post/comment
-app.post("/submit-comment", (req, res) => {
+app.post("/submit-comment", async (req, res) => {
   const { name, question } = req.body;
   const timestamp = new Date().toISOString(); // Automatically generate the timestamp
 
-  // Insert new comment into the database
-  db.run(`INSERT INTO comments (name, question, timestamp) VALUES (?, ?, ?)`, [name, question, timestamp], function(err) {
-    if (err) {
-      console.error("Error saving comment to the database: ", err.message);
-      return res.status(500).json({ message: "Error saving comment to the database." });
-    }
-
-    console.log("New comment saved to the database:", { name, question, timestamp });
+  try {
+    // Insert new comment into the MongoDB collection
+    await commentsCollection.insertOne({ name, question, timestamp });
+    console.log("New comment saved to MongoDB:", { name, question, timestamp });
     res.json({ message: "Comment successfully saved!", comment: { name, question, timestamp } });
-  });
+  } catch (err) {
+    console.error("Error saving comment to MongoDB: ", err.message);
+    res.status(500).json({ message: "Error saving comment to MongoDB." });
+  }
 });
 
-// Route to fetch all comments from the database
-app.get("/comments", (req, res) => {
-  db.all(`SELECT * FROM comments ORDER BY timestamp DESC`, [], (err, rows) => {
-    if (err) {
-      console.error("Error retrieving comments from database: ", err.message);
-      return res.status(500).json({ message: "Error retrieving comments." });
-    }
-    
-    res.json(rows); // Send all comments as JSON
-  });
+// Route to fetch all comments from the MongoDB collection
+app.get("/comments", async (req, res) => {
+  try {
+    const comments = await commentsCollection.find().sort({ timestamp: -1 }).toArray();
+    res.json(comments); // Send all comments as JSON
+  } catch (err) {
+    console.error("Error retrieving comments from MongoDB: ", err.message);
+    res.status(500).json({ message: "Error retrieving comments." });
+  }
 });
 
 // Start the server
