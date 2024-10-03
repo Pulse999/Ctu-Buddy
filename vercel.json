@@ -96,16 +96,24 @@
   ],
   "routes": [
     {
-      "src": "/submit-form",
-      "dest": "/server.js"  
-    },
-    {
       "src": "/",
       "dest": "/index.html" 
     },
     {
       "src": "/thank-you",
       "dest": "/thank-you.html" 
+    },
+    {
+      "src": "/submit-comment",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/comments",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/submit-form",
+      "dest": "/server.js"
     },
     {
       "src": "/(.*)",
