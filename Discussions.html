@@ -145,43 +145,74 @@
     </footer>
 
     <script>
-        document.getElementById("new-post-form").addEventListener("submit", function(e) {
-            e.preventDefault(); // Prevent form from submitting and refreshing the page
-    
-            // Get form values
-            const name = document.getElementById("name").value;
-            const question = document.getElementById("question").value;
-    
-            // Get the current date and time
-            const timestamp = new Date().toLocaleString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
+        // Function to load comments from the database
+        function loadComments() {
+            fetch('/comments')
+            .then(response => response.json())
+            .then(data => {
+                const discussionThread = document.getElementById("discussion-thread");
+                discussionThread.innerHTML = ''; // Clear the existing comments
+                
+                data.forEach(comment => {
+                    const commentHTML = `
+                        <div class="post">
+                            <div class="user-profile">
+                                <img src="Img/Sample_User_Icon.png" alt="${comment.name}">
+                                <h3>${comment.name}</h3>
+                            </div>
+                            <div class="post-content">
+                                <p><strong>Question:</strong> ${comment.question}</p>
+                                <p class="post-timestamp">Posted on: ${new Date(comment.timestamp).toLocaleString()}</p>
+                            </div>
+                        </div>
+                    `;
+                    discussionThread.innerHTML += commentHTML;
+                });
+            })
+            .catch(error => {
+                console.error('Error loading comments:', error);
             });
+        }
     
-            // Create new post structure
-            const newPost = `
-                <div class="post">
-                    <div class="user-profile">
-                        <img src="Img/Sample_User_Icon.png" alt="${name}">
-                        <h3>${name}</h3>
-                    </div>
-                    <div class="post-content">
-                        <p><strong>Question:</strong> ${question}</p>
-                        <p class="post-timestamp">Posted on: ${timestamp}</p>
-                    </div>
-                </div>
-            `;
+        // Function to handle new comment submission
+        function submitComment(event) {
+            event.preventDefault();
     
-            // Add new post to the discussion thread
-            document.getElementById("discussion-thread").innerHTML += newPost;
+            const name = document.querySelector('input[name="name"]').value;
+            const question = document.querySelector('textarea[name="question"]').value;
     
-            // Clear the form inputs
-            document.getElementById("new-post-form").reset();
-        });
+            if (!name || !question) {
+                alert('Please fill in both the name and question fields.');
+                return;
+            }
+    
+            fetch('/submit-comment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, question }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                // Clear the form after submission
+                document.querySelector('input[name="name"]').value = '';
+                document.querySelector('textarea[name="question"]').value = '';
+                loadComments(); // Reload comments after successful submission
+            })
+            .catch(error => {
+                console.error('Error submitting comment:', error);
+            });
+        }
+    
+        // Attach submit event to the form
+        document.getElementById('new-post-form').addEventListener('submit', submitComment);
+    
+        // Load comments when the page loads
+        window.onload = loadComments;
     </script>
+    
 
     <script>
         const hamMenu = document.querySelector(".ham-menu");

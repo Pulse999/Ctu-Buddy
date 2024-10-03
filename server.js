@@ -2,38 +2,51 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const path = require("path");
+const sqlite3 = require("sqlite3").verbose(); // Import SQLite
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // Added to parse JSON data from AJAX requests
+app.use(bodyParser.json()); // For JSON parsing
 
 // Serve static files (your HTML, CSS, and JavaScript files)
 app.use(express.static(path.join(__dirname)));
 
+// Connect to SQLite database (or create it if it doesn't exist)
+const db = new sqlite3.Database('./comments.db', (err) => {
+  if (err) {
+    return console.error("Database connection error: ", err.message);
+  }
+  console.log('Connected to the SQLite database.');
+});
+
+// Create a table for storing comments if it doesn't exist
+db.run(`CREATE TABLE IF NOT EXISTS comments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  question TEXT NOT NULL,
+  timestamp TEXT NOT NULL
+)`);
+
 // Handle the form submission (contact form)
 app.post("/submit-form", (req, res) => {
-  // Destructure the form fields from req.body
   const { name, surname, email, phone, message } = req.body;
 
-  // Log the extracted form data to ensure it is correct
   console.log("Form data received:");
   console.log("Name:", name);
   console.log("Email:", email);
   console.log("Message:", message);
 
-  // Create the email transporter
   const transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: "ctubuddy4@gmail.com", // Your Gmail
+      user: "ctubuddy4@gmail.com",
       pass: "ctxb azqa qmfq wyyz", // Your Gmail password or app password
     },
   });
 
-  // Email sent to yourself with the form data
   const mailOptionsToYou = {
-    from: email, // Sender's email
-    to: "ctubuddy4@gmail.com", // Your email
+    from: email,
+    to: "ctubuddy4@gmail.com",
     subject: "New Contact Form Submission",
     text: `You have received a new message from the contact form.
            Name: ${name} 
@@ -41,10 +54,9 @@ app.post("/submit-form", (req, res) => {
            Message: ${message}`,
   };
 
-  // Auto-reply email sent to the customer
   const mailOptionsToCustomer = {
-    from: "ctubuddy4@gmail.com", // Your email
-    to: email, // Customer's email (dynamic from the form input)
+    from: "ctubuddy4@gmail.com",
+    to: email,
     subject: "Thank you for reaching out!",
     text: `Hello there ${name},
      
@@ -56,21 +68,18 @@ app.post("/submit-form", (req, res) => {
            CTU Buddy`,
   };
 
-  // Send email to yourself with form data
   transporter.sendMail(mailOptionsToYou, (error, info) => {
     if (error) {
       console.log("Error sending email to yourself: ", error);
       return res.status(500).send("Error sending email to you.");
     }
 
-    // Send the auto-reply to the customer
     transporter.sendMail(mailOptionsToCustomer, (error, info) => {
       if (error) {
-        console.log("Error sending auto-reply to customer: ", error); // Log the actual error message
+        console.log("Error sending auto-reply to customer: ", error);
         return res.status(500).send("Error sending auto-reply to customer.");
       }
 
-      // Redirect to thank you page after both emails are sent successfully
       res.redirect("/thank-you.html");
     });
   });
@@ -78,18 +87,31 @@ app.post("/submit-form", (req, res) => {
 
 // Route for handling AJAX requests to submit a new post/comment
 app.post("/submit-comment", (req, res) => {
-  const { name, question, timestamp } = req.body;
+  const { name, question } = req.body;
+  const timestamp = new Date().toISOString(); // Automatically generate the timestamp
 
-  // Log the new comment to ensure data is coming through
-  console.log("New comment received:");
-  console.log("Name:", name);
-  console.log("Question:", question);
-  console.log("Timestamp:", timestamp);
+  // Insert new comment into the database
+  db.run(`INSERT INTO comments (name, question, timestamp) VALUES (?, ?, ?)`, [name, question, timestamp], function(err) {
+    if (err) {
+      console.error("Error saving comment to the database: ", err.message);
+      return res.status(500).json({ message: "Error saving comment to the database." });
+    }
 
-  // You can also store the comment in a database or a file here if needed.
+    console.log("New comment saved to the database:", { name, question, timestamp });
+    res.json({ message: "Comment successfully saved!", comment: { name, question, timestamp } });
+  });
+});
 
-  // Respond to the frontend with a success message
-  res.json({ message: "Comment successfully received!" });
+// Route to fetch all comments from the database
+app.get("/comments", (req, res) => {
+  db.all(`SELECT * FROM comments ORDER BY timestamp DESC`, [], (err, rows) => {
+    if (err) {
+      console.error("Error retrieving comments from database: ", err.message);
+      return res.status(500).json({ message: "Error retrieving comments." });
+    }
+    
+    res.json(rows); // Send all comments as JSON
+  });
 });
 
 // Start the server
