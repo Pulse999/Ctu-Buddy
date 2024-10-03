@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="timetable.css">
@@ -52,98 +53,101 @@
         <video width="600" controls autoplay muted loop>
             <source src="Timetable Img/Time.mp4" type="video/mp4"> -->
     </div>
-    <div class="body_content">
-        <a Class="Dbutton" href="Timetable Img/Otimetable.png"  download style="position: relative; left: 140px;">Download  </a>
+    <div>
         <div>
-            <table class="HtmlTable" >
-                <p></p>
-                <tr>
-                <th>Time</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                </tr>
-                <tr>
-                    <td>8AM-9AM</td>
-                    <td>CW412</td>
-                    <td>RD412</td>
-                    <td>ENA412</td>
-                    <td>CF412</td>
-                </tr>
-                <tr>
-                    <td>9AM-10AM</td>
-                    <td>CW412</td>
-                    <td>RD412</td>
-                    <td>ENA412</td>
-                    <td>CF412</td>
-                </tr>
-                <tr>
-                    <td>10AM-11AM</td>
-                    <td>CW412</td>
-                    <td>RD412</td>
-                    <td>ENA412</td>
-                    <td>CF412</td>
-                </tr>
-                <tr>
-                    <td>11AM-12PM</td>
-                    <td>BREAK</td>
-                    <td>RD412</td>
-                    <td>ENA412</td>
-                    <td>CF412</td>
-                </tr>
-                <tr>
-                    <td>12PM-1PM</td>
-                    <td>BREAK</td>
-                    <td>BREAK</td>
-                    <td>BREAK</td>
-                    <td>BREAK</td>
-                    
-                </tr>
-                <tr>
-                    <td>1PM-2PM</td>
-                    <td>CW412</td>
-                    <td>RD412</td>
-                    <td>ENA412</td>
-                    <td>CF412</td>
-                </tr>
-                <tr>
-                    <td>2PM-3PM</td>
-                    <td>CW412</td>
-                    <td>RD412</td>
-                    <td>ENA412</td>
-                    <td>CF412</td>
-                </tr>
-                <tr>
-                    <td>3PM-4PM</td>
-                    <td>CW412</td>
-                </tr>
-
-            </table>
-        </div>
-        <div class="calendar_body">
-            <div class="wrapper">
-            <header>
-                <p class="current-date"></p>
-                <div class="icons">
-                <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                <span id="next" class="material-symbols-rounded">chevron_right</span>
+            <div class="calendar_body">
+                <div class="wrapper">
+                <header>
+                    <p class="current-date"></p>
+                    <div class="icons">
+                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                    <span id="next" class="material-symbols-rounded">chevron_right</span>
+                    </div>
+                </header>
+                <div class="calendar">
+                    <ul class="weeks">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                    </ul>
+                    <ul class="days"></ul>
                 </div>
-            </header>
-            <div class="calendar">
-                <ul class="weeks">
-                <li>Sun</li>
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-                </ul>
-                <ul class="days"></ul>
+                </div>
             </div>
+            
+            <div class="outer-wrapper">
+                <div class="table-wrapper">
+                    <table>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">8AM-9AM</td>
+                            <td>CW412</td>
+                            <td>RD412</td>
+                            <td>ENA412</td>
+                            <td>CF412</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">9AM-10AM</td>
+                            <td>CW412</td>
+                            <td>RD412</td>
+                            <td>ENA412</td>
+                            <td>CF412</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">10AM-11AM</td>
+                            <td>CW412</td>
+                            <td>RD412</td>
+                            <td>ENA412</td>
+                            <td>CF412</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; background-color: rgb;">11AM-12PM</td>
+                            <td>BREAK</td>
+                            <td>RD412</td>
+                            <td>ENA412</td>
+                            <td>CF412</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">12PM-1PM</td>
+                            <td>BREAK</td>
+                            <td>BREAK</td>
+                            <td>BREAK</td>
+                            <td>BREAK</td>
+                                
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">1PM-2PM</td>
+                            <td>CW412</td>
+                            <td>RD412</td>
+                            <td>ENA412</td>
+                            <td>CF412</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">2PM-3PM</td>
+                            <td>CW412</td>
+                            <td>RD412</td>
+                            <td>ENA412</td>
+                            <td>CF412</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">3PM-4PM</td>
+                            <td>CW412</td>
+                        </tr>
+                    </table>
+                </div>
+                <a Class="Dbutton" href="Timetable Img/Otimetable.png"  download style="position: relative; left: 10px; bottom: 50px;">Download Time Table </a>
             </div>
-        </div>
+        
     </div>  
     <footer class="footer">
         <div class="footer-container">

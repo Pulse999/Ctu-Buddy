@@ -11,6 +11,7 @@ html {
     width: 100%;
     height: 60px;
 }
+
 .navlogo {
     height: 60px;
     width: auto;
@@ -87,8 +88,6 @@ span {
   span:hover::before {
     transform: translate(-50%, 0) scaleX(1);
   }
-  
-
 
 
 /* off-screen-menu */
@@ -258,14 +257,16 @@ nav {
 .Dbutton{
     position: relative;
     right: 470px;
-    top: 550px;
+    top: 50px;
     background-color: black;
     color: azure; 
     border-radius: 10px;
     font-size: 25px;
     padding: 20px 20px;
     border: 2px solid white;
-    cursor:move
+    cursor:move;
+    top: 65px;
+
 }
 
 .Dbutton:hover{
@@ -275,17 +276,79 @@ nav {
     box-shadow: 0 0 30px white ;
 }
 
-.HtmlTable th , td {
-    position: relative;
-    width: 180px;
-    height: 45px;
-    left: 50px;
-    bottom: 230px;
-    color:black;
-    border: 3px solid red;
-    background-color:white;
-    font-size: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+.heading {
+    display: flex;
+    background-color: #232f3e;
+    box-shadow: 0px 1px 2px #232f3e;
+
+}
+h1 {
+    color: coral;
+    font-weight: bold;
+    
+    background: transparent;
+    padding: 7px;
+}
+
+.outer-wrapper {
+    margin: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.9);
+    max-width: fit-content;
+    max-height: fit-content;
+    background-color: white;
+}
+.table-wrapper {
+    overflow-y: scroll;
+    overflow-x: scroll;
+    height: fit-content;
+    max-height: 66.4vh;
+    
+    margin-top: 22px;
+    
+    margin: 15px;
+    padding-bottom: 20px;
+}
+
+
+table {
+    min-width: max-content;
+    
+    border-collapse: separate;
+    border-spacing: 0px; 
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif   
+}
+
+table th{
+    position: sticky; 
+    top: 0px;
+    background-color: #ff0000;
+    color: rgb(0, 0, 0);
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    outline: 0.7px solid red;
+    border: 3.5px solid black;
+} 
+
+table th, table td {
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+table td {
+    text-align: left;
+    
+    font-size: 15px;
+    border: 1px solid rgb(255, 0, 0);
+    padding-left: 20px;
 }
 
 footer {
@@ -297,6 +360,7 @@ footer {
     background-color: #333;
     color: #fff;
     padding: 40px 20px;
+    margin-top: 100px;
 }
 
 .footer-container {
@@ -434,8 +498,6 @@ footer {
 }
 
 
-
-
 .Backnew{
     background-image: url(Img/CTU-Pattern-2.svg);
     background-color: white;
@@ -447,26 +509,17 @@ footer {
     height:700px
 }
 
-.body_content{
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
 .calendar_body{
-    position: absolute;
+    position: relative;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
     padding: 0 10px;
+    top: 5px;
     width: 450px;
     margin-right: 10px;
-    left: 1030px;
+    left: 5px;
 }
 .wrapper{
     width: 450px;
@@ -562,6 +615,24 @@ header .current-date{
 
 @media (max-width: 576px) {
 
-    
+    .Dbutton {
+        left: 10px;
+    }
+
+    element.style {
+        position: relative;
+        left: 10px;
+        top: 65px;
+    }
+
+    .calendar_body {
+        width: 100vw;
+    }
+
+    .calendar .weeks li{
+        font-weight: 500;
+        cursor: default;
+        font-size: small;
+    }
 }
 
