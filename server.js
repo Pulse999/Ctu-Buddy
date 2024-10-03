@@ -1,54 +1,53 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const path = require('path');
-const app = express();
+const express = require("express");
+const nodemailer = require("nodemailer");
+const bodyParser = require("body-parser");
+const path = require("path");
+const sqlite3 = require("sqlite3").verbose(); // Import SQLite
 
+const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // For JSON parsing
 
-// Serve static files (HTML, CSS, JS)
+// Serve static files (your HTML, CSS, and JavaScript files)
 app.use(express.static(path.join(__dirname)));
 
-// MongoDB Connection (replace <username>, <password>, and <cluster-url> with your details)
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://<username>:<password>@<cluster-url>/<database>?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+// Connect to SQLite database (or create it if it doesn't exist)
+const db = new sqlite3.Database('./comments.db', (err) => {
+  if (err) {
+    return console.error("Database connection error: ", err.message);
+  }
+  console.log('Connected to the SQLite database.');
 });
 
-// Check MongoDB connection
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
-});
+// Create a table for storing comments if it doesn't exist
+db.run(`CREATE TABLE IF NOT EXISTS comments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  question TEXT NOT NULL,
+  timestamp TEXT NOT NULL
+)`);
 
-// Define a schema and model for comments
-const commentSchema = new mongoose.Schema({
-  name: String,
-  question: String,
-  timestamp: { type: Date, default: Date.now },
-});
-
-const Comment = mongoose.model('Comment', commentSchema);
-
-// Handle contact form submission
-app.post('/submit-form', (req, res) => {
+// Handle the form submission (contact form)
+app.post("/submit-form", (req, res) => {
   const { name, surname, email, phone, message } = req.body;
 
+  console.log("Form data received:");
+  console.log("Name:", name);
+  console.log("Email:", email);
+  console.log("Message:", message);
+
   const transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    service: "Gmail",
     auth: {
-      user: process.env.GMAIL_USER, // Use environment variables for sensitive data
-      pass: process.env.GMAIL_PASS, // Use environment variables for sensitive data
+      user: "ctubuddy4@gmail.com",
+      pass: "ctxb azqa qmfq wyyz", // Your Gmail password or app password
     },
   });
 
   const mailOptionsToYou = {
     from: email,
-    to: process.env.GMAIL_USER,
-    subject: 'New Contact Form Submission',
+    to: "ctubuddy4@gmail.com",
+    subject: "New Contact Form Submission",
     text: `You have received a new message from the contact form.
            Name: ${name} 
            Email: ${email}
@@ -56,14 +55,14 @@ app.post('/submit-form', (req, res) => {
   };
 
   const mailOptionsToCustomer = {
-    from: process.env.GMAIL_USER,
+    from: "ctubuddy4@gmail.com",
     to: email,
-    subject: 'Thank you for reaching out!',
+    subject: "Thank you for reaching out!",
     text: `Hello there ${name},
      
-           Thank you for submitting your query.
+           Thank you for submitting.
 
-           For any further questions, feel free to reply.
+           For any queries do not hesitate to reply.
 
            Best regards,
            CTU Buddy`,
@@ -71,51 +70,51 @@ app.post('/submit-form', (req, res) => {
 
   transporter.sendMail(mailOptionsToYou, (error, info) => {
     if (error) {
-      console.log('Error sending email to yourself:', error);
-      return res.status(500).send('Error sending email to you.');
+      console.log("Error sending email to yourself: ", error);
+      return res.status(500).send("Error sending email to you.");
     }
 
     transporter.sendMail(mailOptionsToCustomer, (error, info) => {
       if (error) {
-        console.log('Error sending auto-reply to customer:', error);
-        return res.status(500).send('Error sending auto-reply to customer.');
+        console.log("Error sending auto-reply to customer: ", error);
+        return res.status(500).send("Error sending auto-reply to customer.");
       }
 
-      res.redirect('/thank-you.html');
+      res.redirect("/thank-you.html");
     });
   });
 });
 
-// Handle the submission of new comments
-app.post('/submit-comment', (req, res) => {
+// Route for handling AJAX requests to submit a new post/comment
+app.post("/submit-comment", (req, res) => {
   const { name, question } = req.body;
+  const timestamp = new Date().toISOString(); // Automatically generate the timestamp
 
-  const newComment = new Comment({ name, question });
-
-  newComment.save((err) => {
+  // Insert new comment into the database
+  db.run(`INSERT INTO comments (name, question, timestamp) VALUES (?, ?, ?)`, [name, question, timestamp], function(err) {
     if (err) {
-      console.error('Error saving comment to MongoDB:', err.message);
-      return res.status(500).json({ message: 'Error saving comment to the database.' });
+      console.error("Error saving comment to the database: ", err.message);
+      return res.status(500).json({ message: "Error saving comment to the database." });
     }
 
-    console.log('New comment saved to the database:', { name, question });
-    res.json({ message: 'Comment successfully saved!' });
+    console.log("New comment saved to the database:", { name, question, timestamp });
+    res.json({ message: "Comment successfully saved!", comment: { name, question, timestamp } });
   });
 });
 
-// Fetch all comments from the database
-app.get('/comments', (req, res) => {
-  Comment.find()
-    .sort({ timestamp: -1 })
-    .exec((err, comments) => {
-      if (err) {
-        console.error('Error retrieving comments from database:', err.message);
-        return res.status(500).json({ message: 'Error retrieving comments.' });
-      }
-
-      res.json(comments); // Send all comments as JSON
-    });
+// Route to fetch all comments from the database
+app.get("/comments", (req, res) => {
+  db.all(`SELECT * FROM comments ORDER BY timestamp DESC`, [], (err, rows) => {
+    if (err) {
+      console.error("Error retrieving comments from database: ", err.message);
+      return res.status(500).json({ message: "Error retrieving comments." });
+    }
+    
+    res.json(rows); // Send all comments as JSON
+  });
 });
 
-// Export the app for Vercel's serverless functions
-module.exports = app;
+// Start the server
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
