@@ -3,6 +3,10 @@
     src: url(fonts/coolvetica/coolvetica\ rg\ it.otf);
 }
 
+html {
+    overflow-x: hidden;
+}
+
 .header-main {
     width: 100%;
     height: 60px;
@@ -554,5 +558,10 @@ header .current-date{
 }
 .days li:not(.active):hover::before{
     background: #f2f2f2;
+}
+
+@media (max-width: 576px) {
+
+    
 }
 
