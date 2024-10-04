@@ -62,27 +62,27 @@
       "use": "@vercel/static"
     },
     {
-      "src": "Timetable Img/*",
+      "src": "Timetable Img/**/*",
       "use": "@vercel/static"
     },
     {
-      "src": "node_modules/*",
+      "src": "node_modules/**/*",
       "use": "@vercel/static"
     },
     {
-      "src": "AboutUs Img/*",
+      "src": "AboutUs Img/**/*",
       "use": "@vercel/static"
     },
     {
-      "src": "Img/*",
+      "src": "Img/**/*",
       "use": "@vercel/static"
     },
     {
-      "src": "fonts/*",
+      "src": "fonts/**/*",
       "use": "@vercel/static"
     },
     {
-      "src": "uploads/*",
+      "src": "uploads/**/*",
       "use": "@vercel/static"
     }
   ],
@@ -91,10 +91,11 @@
     { "src": "/submit-form", "dest": "/server.js" },
     { "src": "/", "dest": "/index.html" },
     { "src": "/about", "dest": "/AboutUs.html" },
+    { "src": "/thank-you", "dest": "thank-you.html" },
     { "src": "/contact", "dest": "/Contact.html" },
-    { "src": "/timetable", "dest": "/Timetable.html" },
-    { "src": "/discussions", "dest": "/Discussions.html" },
-    { "src": "/resources", "dest": "/Recources.html" },
+    { "src": "/Timetable", "dest": "/Timetable.html" },
+    { "src": "/Discussions", "dest": "/Discussions.html" },
+    { "src": "/Resources", "dest": "/Recources.html" },
     { "src": "/uploads/(.*)", "dest": "/uploads/$1" },
     { "src": "/comments", "dest": "/comments.json" }
   ]
