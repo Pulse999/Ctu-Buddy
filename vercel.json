@@ -88,6 +88,7 @@
   ],
   "routes": [
     { "src": "/api/.*", "dest": "/server.js" },
+    { "src": "/submit-form", "dest": "/server.js" },
     { "src": "/", "dest": "/index.html" },
     { "src": "/about", "dest": "/AboutUs.html" },
     { "src": "/contact", "dest": "/Contact.html" },
