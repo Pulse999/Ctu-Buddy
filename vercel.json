@@ -30,7 +30,7 @@
       "use": "@vercel/static"
     },
     {
-      "src": "styles.css",
+      "src": "Styles.css",
       "use": "@vercel/static"
     },
     {
@@ -50,7 +50,7 @@
       "use": "@vercel/static"
     },
     {
-      "src": "Recources-styles.css",
+      "src": "Rescources-styles.css",
       "use": "@vercel/static"
     },
     {
@@ -59,6 +59,26 @@
     },
     {
       "src": "comments.json",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Timetable Img/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "node_modules/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "AboutUs Img/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Img/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "fonts/*",
       "use": "@vercel/static"
     },
     {
