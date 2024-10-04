@@ -159,48 +159,58 @@
 
     <script>
         $(document).ready(function() {
-            // Fetch and display resources on page load
-            fetchResources();
+    // Fetch and display resources on page load
+    fetchResources();
 
-            // Handle form submission for file upload
-            $('#uploadForm').submit(function(event) {
-                event.preventDefault();  // Prevent default form submission
+    // Handle form submission for file upload
+    $('#uploadForm').submit(function(event) {
+        event.preventDefault();  // Prevent default form submission
 
-                var formData = new FormData(this);
+        var formData = new FormData(this);
 
-                $.ajax({
-                    url: '/upload',  // Server upload endpoint
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
-                        alert('Resource uploaded successfully!');
-                        fetchResources();  // Refresh resource list
-                    },
-                    error: function(err) {
-                        alert('Error uploading resource.');
-                    }
-                });
-            });
-
-            // Fetch and display all resources
-            function fetchResources() {
-                $.get('/resources', function(data) {
-                    $('#resourcesContainer').empty();  // Clear the resource list
-                    data.forEach(function(resource) {
-                        $('#resourcesContainer').append(`
-                            <div class="resource-item">
-                                <img src="Img/Pdf icon.png" alt="PDF Icon">
-                                <h3>${resource.title}</h3>
-                                <p>Category: ${resource.category}</p>
-                                <a href="/download/${resource._id}">Download</a>
-                            </div>
-                        `);
-                    });
-                });
+        $.ajax({
+            url: '/upload',  // Server upload endpoint
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                alert('Resource uploaded successfully!');
+                fetchResources();  // Refresh resource list
+            },
+            error: function(err) {
+                alert('Error uploading resource: ' + err.responseText);
             }
         });
+    });
+
+    // Fetch and display all resources
+    function fetchResources() {
+        $.get('/resources', function(data) {
+            $('#resourcesContainer').empty();  // Clear the resource list
+            data.forEach(function(resource) {
+                $('#resourcesContainer').append(`
+                    <div class="resource-item">
+                        <img src="Img/Pdf icon.png" alt="PDF Icon for ${resource.title}">
+                        <h3>${resource.title}</h3>
+                        <p>Category: ${resource.category}</p>
+                        <a href="/download/${resource._id}">Download</a>
+                    </div>
+                `);
+            });
+        });
+    }
+
+    // Implement search functionality
+    $('#searchBox').on('input', searchResources);
+
+    function searchResources() {
+        const query = $('#searchBox').val().toLowerCase();
+        $('#resourcesContainer .resource-item').filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(query) > -1);
+        });
+    }
+});
     </script>
 
     <script>
