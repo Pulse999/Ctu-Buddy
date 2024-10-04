@@ -91,12 +91,13 @@
     { "src": "/submit-form", "dest": "/server.js" },
     { "src": "/", "dest": "/index.html" },
     { "src": "/about", "dest": "/AboutUs.html" },
+    { "src": "/Contact", "dest": "/Contact.html" },
     { "src": "/thank-you", "dest": "thank-you.html" },
-    { "src": "/contact", "dest": "/Contact.html" },
     { "src": "/Timetable", "dest": "/Timetable.html" },
     { "src": "/Discussions", "dest": "/Discussions.html" },
     { "src": "/Resources", "dest": "/Recources.html" },
     { "src": "/uploads/(.*)", "dest": "/uploads/$1" },
-    { "src": "/comments", "dest": "/comments.json" }
+    { "src": "/comments", "dest": "/comments.json" },
+    { "src": "/(.*)", "dest": "/$1"}
   ]
 }
