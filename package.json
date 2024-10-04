@@ -19,11 +19,12 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "fs": "^0.0.1-security",
-    "mongodb": "^5.6.0",  
+    "mongodb": "^5.6.0",
+    "mongoose": "^8.7.0",
     "multer": "^1.4.5-lts.1",
-    "nodemailer": "^6.9.0",
-    "dotenv": "^16.0.3"    
+    "nodemailer": "^6.9.0"
   }
 }

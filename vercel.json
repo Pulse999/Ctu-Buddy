@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "AboutUs.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Contact.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Timetable.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Discussions.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Recources.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "styles.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "AboutUs.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Contact-styles.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "timetable.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Discussions.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Recources-styles.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "calender_script.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "comments.json",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "uploads/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/api/.*", "dest": "/server.js" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/about", "dest": "/AboutUs.html" },
+    { "src": "/contact", "dest": "/Contact.html" },
+    { "src": "/timetable", "dest": "/Timetable.html" },
+    { "src": "/discussions", "dest": "/Discussions.html" },
+    { "src": "/resources", "dest": "/Recources.html" },
+    { "src": "/uploads/(.*)", "dest": "/uploads/$1" },
+    { "src": "/comments", "dest": "/comments.json" }
+  ]
+}
